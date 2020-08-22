@@ -1,5 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<ActionBar [title]="title"></ActionBar>
-<StackLayout  class="p-20">
-    <Label [text]="'Welcome to ' + title + '!'" class="h1 text-center" textWrap="true"></Label>
-</StackLayout>
+<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <GridLayout rows="*, auto" width="100%">
+        <Image [src]="bgSrc"  stretch="aspectFill" ></Image>
+        <StackLayout verticalAlignment="bottom">
+<!--            <Image [src]="logoSrc"  ></Image>-->
+            <Button id="startButton" text="START" (tap)="onTap($event)" class="-primary -rounded-lg"></Button>
+        </StackLayout>
+    </GridLayout>
+</Page>
+

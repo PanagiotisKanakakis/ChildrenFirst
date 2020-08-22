@@ -1,0 +1,622 @@
+/* Add mobile styles for the component here.  */
+body {
+    margin: 0px;
+    background-image: none;
+    position: relative;
+    left: 0px;
+    width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+#base {
+    position: absolute;
+    z-index: 0;
+}
+
+#u0_div {
+    border-width: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1400px;
+    height: 602px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 1);
+    background-image: url('../../assets/images/character-selection/u0_div.PNG');
+    background-repeat: no-repeat;
+    background-size: 1024px 562px;
+    background-position: left top;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(121, 121, 121, 1);
+    border-radius: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: 'Comic Sans MS Κανονικά', 'Comic Sans MS', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#u0 {
+    border-width: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1400px;
+    height: 602px;
+    display: flex;
+    opacity: 0.9;
+    font-family: 'Comic Sans MS Κανονικά', 'Comic Sans MS', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#u0 .text {
+    position: absolute;
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#u0_text {
+    border-width: 0px;
+    word-wrap: break-word;
+    text-transform: none;
+    visibility: hidden;
+}
+
+#u1_div {
+    border-width: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 437px;
+    height: 56px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    border-radius: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: 'Comic Sans MS Έντονα', 'Comic Sans MS Κανονικά', 'Comic Sans MS', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 40px;
+}
+
+#u1 {
+    border-width: 0px;
+    position: absolute;
+    left: 293px;
+    top: 126px;
+    width: 437px;
+    height: 56px;
+    display: flex;
+    font-family: 'Comic Sans MS Έντονα', 'Comic Sans MS Κανονικά', 'Comic Sans MS', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 40px;
+}
+
+#u1 .text {
+    position: absolute;
+    align-self: flex-start;
+    padding: 0px 0px 0px 0px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#u1_text {
+    border-width: 0px;
+    white-space: nowrap;
+    text-transform: none;
+}
+
+#u2_img {
+    border-width: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100px;
+    height: 60px;
+}
+
+#u2 {
+    border-width: 0px;
+    position: absolute;
+    left: 46px;
+    top: 384px;
+    width: 100px;
+    height: 60px;
+    display: flex;
+}
+
+#u2 .text {
+    position: absolute;
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#u2_text {
+    border-width: 0px;
+    word-wrap: break-word;
+    text-transform: none;
+    visibility: hidden;
+}
+
+#u3_img {
+    border-width: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100px;
+    height: 60px;
+}
+
+#u3 {
+    border-width: 0px;
+    position: absolute;
+    left: 293px;
+    top: 384px;
+    width: 100px;
+    height: 60px;
+    display: flex;
+}
+
+#u3 .text {
+    position: absolute;
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#u3_text {
+    border-width: 0px;
+    word-wrap: break-word;
+    text-transform: none;
+    visibility: hidden;
+}
+
+#u4_img {
+    border-width: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100px;
+    height: 60px;
+}
+
+#u4 {
+    border-width: 0px;
+    position: absolute;
+    left: 570px;
+    top: 384px;
+    width: 100px;
+    height: 60px;
+    display: flex;
+}
+
+#u4 .text {
+    position: absolute;
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#u4_text {
+    border-width: 0px;
+    word-wrap: break-word;
+    text-transform: none;
+    visibility: hidden;
+}
+
+#u5_img {
+    border-width: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100px;
+    height: 60px;
+}
+
+#u5 {
+    border-width: 0px;
+    position: absolute;
+    left: 822px;
+    top: 384px;
+    width: 100px;
+    height: 60px;
+    display: flex;
+}
+
+#u5 .text {
+    position: absolute;
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#u5_text {
+    border-width: 0px;
+    word-wrap: break-word;
+    text-transform: none;
+    visibility: hidden;
+}
+
+body.a {
+    background-color: rgba(255, 255, 255, 1);
+    background-image: none;
+    position: relative;
+    left: 0px;
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#u0.a {
+    width: 1024px;
+    height: 562px;
+}
+
+#u0_div.a {
+    border-width: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1024px;
+    height: 562px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 1);
+    background-image: url('../../assets/images/character-selection/u0_div.PNG');
+    background-repeat: no-repeat;
+    background-size: 1024px 562px;
+    background-position: left top;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(121, 121, 121, 1);
+    border-radius: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: 'Comic Sans MS Κανονικά', 'Comic Sans MS', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#u0.a {
+    width: 1024px;
+    height: 562px;
+}
+
+#u0_text.a {
+}
+
+#u0 .text.a {
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+}
+
+#u1.a {
+}
+
+#u1_div.a {
+    border-width: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 437px;
+    height: 56px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    border-radius: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: 'Comic Sans MS Έντονα', 'Comic Sans MS Κανονικά', 'Comic Sans MS', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 40px;
+}
+
+#u1.a {
+}
+
+#u1_text.a {
+}
+
+#u1 .text.a {
+    align-self: flex-start;
+    padding: 0px 0px 0px 0px;
+}
+
+#u2.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u2_img.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u2.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u2_text.a {
+}
+
+#u2 .text.a {
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+}
+
+#u3.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u3_img.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u3.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u3_text.a {
+}
+
+#u3 .text.a {
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+}
+
+#u4.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u4_img.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u4.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u4_text.a {
+}
+
+#u4 .text.a {
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+}
+
+#u5.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u5_img.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u5.a {
+    width: 160px;
+    height: 140px;
+}
+
+#u5_text.a {
+}
+
+#u5 .text.a {
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+}
+
+body.b {
+    background-color: rgba(255, 255, 255, 1);
+    background-image: none;
+    position: relative;
+    left: 0px;
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#u0.b {
+    width: 1024px;
+    height: 562px;
+}
+
+#u0_div.b {
+    border-width: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1024px;
+    height: 562px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 1);
+    background-image: url('../../assets/images/character-selection/u0_div.PNG');
+    background-repeat: no-repeat;
+    background-size: 1024px 562px;
+    background-position: left top;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(121, 121, 121, 1);
+    border-radius: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: 'Comic Sans MS Κανονικά', 'Comic Sans MS', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#u0.b {
+    width: 1024px;
+    height: 562px;
+}
+
+#u0_text.b {
+}
+
+#u0 .text.b {
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+}
+
+#u1.b {
+}
+
+#u1_div.b {
+    border-width: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 437px;
+    height: 56px;
+    background: inherit;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    border-radius: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: 'Comic Sans MS Έντονα', 'Comic Sans MS Κανονικά', 'Comic Sans MS', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 40px;
+}
+
+#u1.b {
+}
+
+#u1_text.b {
+}
+
+#u1 .text.b {
+    align-self: flex-start;
+    padding: 0px 0px 0px 0px;
+}
+
+#u2.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u2_img.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u2.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u2_text.b {
+}
+
+#u2 .text.b {
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+}
+
+#u3.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u3_img.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u3.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u3_text.b {
+}
+
+#u3 .text.b {
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+}
+
+#u4.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u4_img.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u4.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u4_text.b {
+}
+
+#u4 .text.b {
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+}
+
+#u5.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u5_img.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u5.b {
+    width: 160px;
+    height: 140px;
+}
+
+#u5_text.b {
+}
+
+#u5 .text.b {
+    align-self: center;
+    padding: 2px 2px 2px 2px;
+}
