@@ -1,7 +1,7 @@
 import {Routes} from '@angular/router';
 
-import {HomeComponent} from '@src/app/home/home.component';
-import {CharacterSelectionComponent} from '@src/app/character-selection/character-selection.component';
+import {HomeComponent} from '@src/app/pages/home/home.component';
+import {CharacterSelectionComponent} from '@src/app/pages/character-selection/character-selection.component';
 
 export const routes: Routes = [
     {

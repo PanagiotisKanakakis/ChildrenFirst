@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {orientationCleanup, setCurrentOrientation} from 'nativescript-screen-orientation';
 import {GestureEventData, Page} from '@nativescript/core';
-import * as fs from 'tns-core-modules/file-system';
+import {knownFolders} from 'tns-core-modules/file-system';
 import {NavigationExtras, Router} from '@angular/router';
 
 @Component({
@@ -12,23 +12,14 @@ import {NavigationExtras, Router} from '@angular/router';
 export class HomeComponent implements OnInit {
     public bgSrc: string;
     public logoSrc: string;
-    private router:Router;
     private REDIRECT_ROUTE = ['/character-selection'];
 
-
-    constructor(router: Router, page: Page) {
-        this.router = router;
-        this.bgSrc = encodeURI(`${fs.knownFolders.currentApp().path}/assets/images/background.PNG`);
-        this.logoSrc = encodeURI(`${fs.knownFolders.currentApp().path}/assets/images/logo.PNG`);
-        // page.actionBarHidden = true;
-        page.on('navigatedTo', function() {
-            setCurrentOrientation('landscape', function() {
-                console.log('landscape orientation');
-            });
-        });
-        page.on('navigatingFrom', function() {
-            orientationCleanup();
-        });
+    constructor(
+        private router: Router,
+        private page: Page
+    ) {
+        this.bgSrc = encodeURI(`${knownFolders.currentApp().path}/assets/images/background.PNG`);
+        this.logoSrc = encodeURI(`${knownFolders.currentApp().path}/assets/images/logo.PNG`);
     }
 
     onTap(args: GestureEventData) {
@@ -36,5 +27,13 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.page.on('navigatedTo', function() {
+            setCurrentOrientation('landscape', function() {
+                console.log('landscape orientation');
+            });
+        });
+        this.page.on('navigatingFrom', function() {
+            orientationCleanup();
+        });
     }
 }
