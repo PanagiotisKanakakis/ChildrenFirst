@@ -1,0 +1,26 @@
+[
+  {
+    "Q1": {
+      "text": "q1",
+      "leadsTo": [
+        "A1",
+        "A2"
+      ],
+      "score": 0
+    }
+  },
+  {
+    "A1": {
+      "text": "a1",
+      "leadsTo": [],
+      "score": 3
+    }
+  },
+  {
+    "A2": {
+      "text": "a2",
+      "leadsTo": [],
+      "score": 4
+    }
+  }
+]

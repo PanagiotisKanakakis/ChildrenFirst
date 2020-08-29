@@ -5,6 +5,9 @@ import { AppRoutingModule } from '@src/app/app-routing.module';
 import { AppComponent } from '@src/app/app.component';
 import { HomeComponent } from '@src/app/pages/home/home.component';
 import { CharacterSelectionComponent } from '@src/app/pages/character-selection/character-selection.component';
+import { NativeScriptMaterialButtonModule } from "nativescript-material-button/angular";
+import { CharacterInformationComponent } from '@src/app/pages/character-information/character-information.component';
+import { DialogsComponent } from '@src/app/pages/dialogs/dialogs.component';
 
 
 @NgModule({
@@ -12,10 +15,13 @@ import { CharacterSelectionComponent } from '@src/app/pages/character-selection/
     AppComponent,
     HomeComponent,
     CharacterSelectionComponent,
+    CharacterInformationComponent,
+    DialogsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NativeScriptMaterialButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

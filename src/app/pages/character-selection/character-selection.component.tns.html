@@ -1,21 +1,21 @@
-<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <GridLayout (swipe)="onSwipe($event)">
+<Page class="page coverImage" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <GridLayout (swipe)="onSwipe($event)" (tap)="onTap($event)">
         <GridLayout rows="3*, *">
             <GridLayout row="0" rows="*" class="m-t-20">
-                <ContentView #slideContent row="0" id="slide-content">
+                <GridLayout row="0" rows="auto" verticalAlignment="top" class="m-b-20" >
+                    <Label class="gagalin-regular player-choice" text="CHOOSE YOUR PLAYER" textWrap="true"></Label>
+                </GridLayout>
+                <ContentView #slideContent row="1" id="slide-content">
                     <GridLayout row="0" rows="*">
                         <Label class="opensans-semi-bold carousel-loading" text="Loading..." textWrap="true"></Label>
                     </GridLayout>
                 </ContentView>
             </GridLayout>
-            <GridLayout row="2" rows="auto, auto">
+            <GridLayout row="1" rows="auto, auto">
                 <GridLayout row="0" rows="*" columns="*, auto, *" id="carousel-slider" class="m-b-20">
                     <StackLayout [ngClass]="getSliderItemClass(0)" verticalAlignment="top" col="0" horizontalAlignment="right"></StackLayout>
                     <StackLayout [ngClass]="getSliderItemClass(1)" style="margin: 0 5" verticalAlignment="top" col="1" horizontalAlignment="center"></StackLayout>
                     <StackLayout [ngClass]="getSliderItemClass(2)" verticalAlignment="top" col="2" horizontalAlignment="left"></StackLayout>
-                </GridLayout>
-                <GridLayout row="1" rows="auto" verticalAlignment="bottom" class="m-t-10">
-                    <Button text="Get Started" class="opensans-semi-bold skip-intro" (tap)="skipIntro()"></Button>
                 </GridLayout>
             </GridLayout>
         </GridLayout>

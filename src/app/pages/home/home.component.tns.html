@@ -1,10 +1,12 @@
-<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <GridLayout rows="*, auto" width="100%">
-        <Image [src]="bgSrc"  stretch="aspectFill" ></Image>
-        <StackLayout verticalAlignment="bottom">
-<!--            <Image [src]="logoSrc"  ></Image>-->
-            <Button id="startButton" text="START" (tap)="onTap($event)" class="-primary -rounded-lg"></Button>
-        </StackLayout>
+<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd"
+      navigatingTo="navigatingTo" class="coverImage">
+    <GridLayout row="2" rows="4*, *">
+        <GridLayout row="0" rows="*" columns="*" >
+            <Image [src]="logoSrc" stretch="aspectFill" ></Image>
+        </GridLayout>
+        <GridLayout row="1" rows="auto" verticalAlignment="bottom" class="m-t-10">
+            <Button class="gagalin-regular -rounded-lg start-button" text="START" (tap)="onTap($event)"></Button>
+        </GridLayout>
     </GridLayout>
 </Page>
 
