@@ -15,7 +15,7 @@ export const routes: Routes = [
         component: HomeComponent,
     },
     {
-        path: 'character-selection',
+        path: 'characters',
         component: CharacterSelectionComponent,
     },
     {

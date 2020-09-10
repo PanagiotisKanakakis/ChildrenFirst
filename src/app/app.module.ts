@@ -8,6 +8,7 @@ import { CharacterSelectionComponent } from '@src/app/pages/character-selection/
 import { NativeScriptMaterialButtonModule } from "nativescript-material-button/angular";
 import { CharacterInformationComponent } from '@src/app/pages/character-information/character-information.component';
 import { DialogsComponent } from '@src/app/pages/dialogs/dialogs.component';
+import { ScoreComponent } from '@src/app/pages/score/score.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { DialogsComponent } from '@src/app/pages/dialogs/dialogs.component';
     HomeComponent,
     CharacterSelectionComponent,
     CharacterInformationComponent,
-    DialogsComponent
+    DialogsComponent,
+    ScoreComponent
   ],
   imports: [
     BrowserModule,

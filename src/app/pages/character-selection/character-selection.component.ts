@@ -33,9 +33,9 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
     private idToName = {};
 
     private nameToImagePath = {
-        'George': '/assets/images/character-selection/character.png',
-        'Mary': '/assets/images/character-selection/character.png',
-        'Helen': '/assets/images/character-selection/character.png'
+        'Mimi': '/assets/images/characters/mimi.png',
+        'Mary': '/assets/images/characters/character.png',
+        'Helen': '/assets/images/characters/character.png'
     };
 
     constructor(
@@ -118,10 +118,6 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
         }).catch((e) => {
             console.log(e.message);
         });
-    }
-
-    itemSelected(item: number) {
-        console.log(item);
     }
 
     getSliderItemClass(item: number) {

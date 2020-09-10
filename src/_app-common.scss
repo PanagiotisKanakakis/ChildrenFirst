@@ -21,16 +21,53 @@
 /*.fa {
   font-family: "FontAwesome";
 }*/
+.far {
+  font-family: Font Awesome 5 Free, fa-regular-400;
+  font-weight: 400;
+}
 
-.welcome-page-background {
-  background: linear-gradient(180deg, #E87401, #D05427);
+.fab {
+  font-family: Font Awesome 5 Brands, fa-brands-400;
+  font-weight: 400;
+}
+
+.fas {
+  font-family: Font Awesome 5 Free, fa-solid-900;
+  font-weight: 900;
+}
+
+
+.background {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.dialog-background {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.centerAlignment{
+  horizontal-align: center;
+  vertical-align: center;
+}
+
+.topAlignment{
+  horizontal-align: center;
+  vertical-align: top;
+}
+
+.avatar{
+  opacity: 1;
 }
 
 .caro-item-dot {
   background: rgba(255, 255, 128, 1);
   border-radius: 6;
-  height: 12;
-  width: 12;
+  height: 10;
+  width: 10;
 }
 
 .caro-item-dot-selected {
@@ -49,7 +86,7 @@
 }
 
 .carousel-item-head {
-  color: #FFFFFF;
+  color: black;
   font-size: 36;
   text-align: center;
 }
@@ -79,10 +116,11 @@
   text-align: center;
   horizontal-align: center;
   vertical-align: center;
+  transform: scale(0.6);
 }
 
 .bordered{
   //border-width: 3;
   //border-color: yellowgreen;
-  margin-top: 50;
+  margin-top: 30%;
 }

@@ -1,12 +1,24 @@
 <Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd"
-      navigatingTo="navigatingTo" class="coverImage">
-    <GridLayout row="2" rows="4*, *">
-        <GridLayout row="0" rows="*" columns="*" >
-            <Image [src]="logoSrc" stretch="aspectFill" ></Image>
-        </GridLayout>
-        <GridLayout row="1" rows="auto" verticalAlignment="bottom" class="m-t-10">
-            <Button class="gagalin-regular -rounded-lg start-button" text="START" (tap)="onTap($event)"></Button>
+      navigatingTo="navigatingTo" >
+    <GridLayout rows="*" columns="*" class="background" [backgroundImage]="logoSrc">
+        <GridLayout row="0" col="0"  >
+            <Button  class="-rounded-lg continue-button" horizontalAlignment="right" verticalAlignment="bottom"
+                     (tap)="onTap($event)">
+                <FormattedString>
+                    <Span text="START   " class="gagalin-regular"></Span>
+                    <Span class="fas" text="&#xf061;"></Span>
+                </FormattedString>
+            </Button>
         </GridLayout>
     </GridLayout>
+    <!--<GridLayout class="background" rows="auto" columns="auto" [backgroundImage]="logoSrc">
+        <Button  class="-rounded-lg continue-button" horizontalAlignment="right" verticalAlignment="bottom"
+                (tap)="onTap($event)">
+            <FormattedString>
+                <Span text="START   " class="gagalin-regular"></Span>
+                <Span class="fas" text="&#xf061;"></Span>
+            </FormattedString>
+        </Button>
+    </GridLayout>-->
 </Page>
 

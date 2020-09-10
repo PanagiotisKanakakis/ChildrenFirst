@@ -1,11 +1,28 @@
-<GridLayout row="0" rows="*, 2*, *" class="bordered">
-    <GridLayout row="0" horizontalAlignment="right" verticalAlignment="top" >
-        <Image [src]="characterSrc"  ></Image>
+<GridLayout rows="*" columns="*, 4*, *" >
+    <GridLayout row="0" col="0" >
+        <Image  [src]="rightChar" horizontalAlignment="right" verticalAlignment="bottom" ></Image>
     </GridLayout>
-    <GridLayout class="carousel-item-circle" row="1" horizontalAlignment="center" verticalAlignment="center">
-<!--        <Image [src]="characterSrc" class="carousel-item-icon" ></Image>-->
-    </GridLayout>
-    <GridLayout  row="2" horizontalAlignment="left" verticalAlignment="center">
-        <Image [src]="characterSrc" class="carousel-item-icon" ></Image>
+    <StackLayout #dialogsContent id="dialogs-content" row="0" col="1" >
+        <Image id="image" width="100%"></Image>
+        <Image *ngFor="let answer of answers" [id]="answer.id" [src]="answer.src" [score]="answer.score"
+               (tap)="answerTap($event,answer.id)"></Image>
+    </StackLayout>
+    <GridLayout row="0" col="2" >
+        <Image [src]="leftChar"  horizontalAlignment="left" verticalAlignment="top"></Image>
+        <Button id="button" class="-rounded-lg continue-button" horizontalAlignment="center" verticalAlignment="bottom"
+                (tap)="onTap($event)">
+            <FormattedString>
+                <Span text="CONTINUE   " class="gagalin-regular"></Span>
+                <Span class="fas" text="&#xf061;"></Span>
+            </FormattedString>
+        </Button>
+        <Button id="buttonQuestion" class="-rounded-lg continue-button" horizontalAlignment="center" verticalAlignment="bottom"
+                (tap)="onTapQuestion($event)" visibility="collapse">
+            <FormattedString>
+                <Span text="CONTINUE   " class="gagalin-regular"></Span>
+                <Span class="fas" text="&#xf061;"></Span>
+            </FormattedString>
+        </Button>
     </GridLayout>
 </GridLayout>
+

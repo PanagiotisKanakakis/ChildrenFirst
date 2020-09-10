@@ -1,0 +1,94 @@
+{
+  "leftChar": "/assets/images/characters/avatar_mum.png",
+  "rightChar": "/assets/images/characters/mimi.png",
+  "background": "/assets/images/home/home.jpg",
+  "description": "/assets/images/dialogs/Mimi/description.png",
+  "statements": [
+    "/assets/images/dialogs/Mimi/s1.png",
+    "/assets/images/dialogs/Mimi/s2.png"
+  ],
+  "Questions": {
+    "Q1": {
+      "path": "/assets/images/dialogs/Mimi/q1.png",
+      "leadsTo": [
+        "A1",
+        "A2",
+        "A3"
+      ]
+    },
+    "Q2": {
+      "path": "/assets/images/dialogs/Mimi/q2.png",
+      "leadsTo": [
+        "A4",
+        "A5",
+        "A6"
+      ]
+    },
+    "Q3": {
+      "path": "/assets/images/dialogs/Mimi/q3.png",
+      "leadsTo": [
+        "A7",
+        "A8",
+        "A9"
+      ]
+    },
+    "Q4": {
+      "path": "/assets/images/dialogs/Mimi/q4.png",
+      "leadsTo": [
+        "A1"
+      ]
+    }
+  },
+  "Answers": {
+    "A1": {
+      "path": "/assets/images/dialogs/Mimi/q1a1.png",
+      "leadsTo": ["Q2"],
+      "score": 5
+    },
+    "A2": {
+      "path": "/assets/images/dialogs/Mimi/q1a2.png",
+      "leadsTo": ["Q2"],
+      "score": 10
+    },
+    "A3": {
+      "path": "/assets/images/dialogs/Mimi/q1a3.png",
+      "leadsTo": ["Q3"],
+      "score": 5
+    },
+    "A4": {
+      "path": "/assets/images/dialogs/Mimi/q2a1.png",
+      "leadsTo": ["finalScreen"],
+      "score": 5
+    },
+    "A5": {
+      "path": "/assets/images/dialogs/Mimi/q2a2.png",
+      "leadsTo": ["Q3"],
+      "score": 10
+    },
+    "A6": {
+      "path": "/assets/images/dialogs/Mimi/q2a3.png",
+      "leadsTo": ["Q3"],
+      "score": 15
+    },
+    "A7": {
+      "path": "/assets/images/dialogs/Mimi/q3a1.png",
+      "leadsTo": ["finalScreen"],
+      "score": 5
+    },
+    "A8": {
+      "path": "/assets/images/dialogs/Mimi/q3a2.png",
+      "leadsTo": [],
+      "score": 10
+    },
+    "A9": {
+      "path": "/assets/images/dialogs/Mimi/q3a3.png",
+      "leadsTo": ["Q4"],
+      "score": 15
+    }
+  },
+  "Final": {
+    "finalScreen": {
+
+    }
+  }
+}

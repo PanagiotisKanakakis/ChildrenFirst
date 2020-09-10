@@ -11,6 +11,7 @@ import { DialogsComponent } from '@src/app/pages/dialogs/dialogs.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding and/or HTTP wrapper
 import { NativeScriptHttpClientModule } from '@nativescript/angular';
+import { ScoreComponent } from '@src/app/pages/score/score.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NativeScriptHttpClientModule } from '@nativescript/angular';
     CharacterSelectionComponent,
     CharacterInformationComponent,
     DialogsComponent,
+    ScoreComponent,
   ],
   imports: [
     NativeScriptModule,

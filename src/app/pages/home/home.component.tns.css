@@ -1,5 +1,4 @@
-.start-button {
-    align-self: center;
-    background-color: rgba(255, 255, 128, 1);
-    width: 600px;
+.continue-button {
+    background-color: white;
+    font-style: italic;
 }
