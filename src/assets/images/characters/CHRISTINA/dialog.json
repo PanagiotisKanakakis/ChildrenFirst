@@ -1,0 +1,230 @@
+{
+  "rightChar": "/assets/images/characters/CHRISTINA/alex_avatar.png",
+  "leftChar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+  "Background": "/assets/images/characters/CHRISTINA/park_scenery.png",
+  "payload": {
+    "D1": {
+      "state": 0,
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/description.jpg",
+      "leadsTo": ["S1"]
+    },
+    "S1": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_con1_st1.png",
+      "leadsTo": ["S2"],
+      "avatar": "/assets/images/characters/CHRISTINA/alex_avatar.png",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S2": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/alex_con1_st1.webp",
+      "leadsTo": ["S3"],
+      "avatar": "/assets/images/characters/CHRISTINA/alex_avatar.png",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S3": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_con1_st2.png",
+      "leadsTo": ["Q1"],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "state": 1
+    },
+    "Q1": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/alex_con1_st2.png",
+      "leadsTo": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/alex_avatar.png",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q2": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/alex_con2_st1.png",
+      "leadsTo": [
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/alex_avatar.png",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q3": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/alex_con3_st1.png",
+      "leadsTo": [
+        "A8",
+        "A9",
+        "A10"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/alex_avatar.png",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q4": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/alex_con4_st1.png",
+      "leadsTo": [
+        "A11",
+        "A12"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/alex_avatar.png",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "A1": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q1_A1.png",
+      "leadsTo": [
+        "Q2"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A2": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q1_A2.png",
+      "leadsTo": [
+        "Q3"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A3": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q1_A3.png",
+      "leadsTo": [
+        "Q3"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A4": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q2_A1.png",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A5": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q2_A2.png",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A6": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q2_A3.png",
+      "leadsTo": [
+        "Q3"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A7": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q2_A4.png",
+      "leadsTo": [
+        "Q3"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A8": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q3_A1.png",
+      "leadsTo": ["Q4"],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A9": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q3_A2.png",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A10": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q3_A3.png",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A11": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q4_A1.png",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A12": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/Christina_Q4_A2.png",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "D2": {
+      "state": 0,
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/finalscreen.png",
+      "leadsTo": ["E1","E2","E3"]
+    },
+    "E1": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/christinastory_ending1_alexbubble.png",
+      "leadsTo": ["FL1"],
+      "state": 4
+    },
+    "E2": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/christinastory_ending2_alexbubble.png",
+      "leadsTo": ["FL2"],
+      "state": 4
+    },
+    "E3": {
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/christinastory_ending3_alexbubble.png",
+      "leadsTo": ["FL3"],
+      "state": 4
+    },
+    "FL1": {
+      "state": 5,
+      "feedback": "Good effort! Next time though try to be more open-minded regarding gender roles and equality\nbetween tween relationships of the same or different sex. Gender-based violence takes various\nforms so next time around to take a moment to think through your decisions before you actually\nact.",
+      "description": "Gender stereotypes are…."
+    },
+    "FL2": {
+      "state": 5,
+      "description": "You should be proud of your efforts and decisions through this whole process. It hasn’t been easy,\nbut you took some sensible decisions along the way. Take a moment to process the whole gaming\nprocedure once more so as to be able to reflect and act upon the decisions taken in the first place.",
+      "feedback": "Gender based violence is…."
+    },
+    "FL3": {
+      "state": 5,
+      "description": "Great work, congratulations! Christina is very pleased with herself as she managed to express her\nfeelings and doubts toward Alex’s behaviour. She is optimistic that their relationship will grow\nstronger, but has decided to wait until she takes the next step. Well done about your choices!",
+      "feedback": ""
+    }
+  }
+}

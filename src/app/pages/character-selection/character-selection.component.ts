@@ -6,7 +6,6 @@ import {GridUnitType} from '@nativescript/core/ui/layouts/grid-layout';
 import {Animation} from '@nativescript/core/ui/animation';
 import {AppComponent} from '@src/app/app.component';
 import {RouterExtensions} from '@nativescript/angular';
-import {HttpClient} from '@angular/common/http';
 
 const xml2js = require('xml2js');
 
@@ -20,7 +19,7 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
 
     private slideFiles = ['slide1.html', 'slide2.html', 'slide3.html'];
     currentSlideNum: number = 0;
-    private slideCount = 3;
+    private slideCount = 16;
     private screenWidth;
     private slidesView: GridLayout;
 
@@ -33,15 +32,27 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
     private idToName = {};
 
     private nameToImagePath = {
-        'Mimi': '/assets/images/characters/mimi.png',
-        'Mary': '/assets/images/characters/character.png',
-        'Helen': '/assets/images/characters/character.png'
+        'Mimi': {'avatar':'/assets/images/characters/MIMI/mimi_avatar.png','story':'/assets/images/characters/MIMI/story.txt'},
+        'Lisa': {'avatar':'/assets/images/characters/LISA/lisa_avatar.png','story':'/assets/images/characters/LISA/story.txt'},
+        'Selina': {'avatar':'/assets/images/characters/SELINA/selina_avatar.png','story':'/assets/images/characters/SELINA/story.txt'},
+        'Anna': {'avatar':'/assets/images/characters/ANNA/anna_avatar.png','story':'/assets/images/characters/ANNA/story.txt'},
+        'Christian': {'avatar':'/assets/images/characters/CHRISTIAN/christian_avatar.png','story':'/assets/images/characters/CHRISTIAN/story.txt'},
+        'Luca': {'avatar':'/assets/images/characters/LUCA/luca_avatar.png','story':'/assets/images/characters/LUCA/story.txt'},
+        'Georgia': {'avatar':'/assets/images/characters/GEORGIA/georgia_avatar.png','story':'/assets/images/characters/GEORGIA/story.txt'},
+        'Iman': {'avatar':'/assets/images/characters/IMAN/iman_avatar.png','story':'/assets/images/characters/IMAN/story.txt'},
+        'Maria': {'avatar':'/assets/images/characters/MARIA/maria_avatar.png','story':'/assets/images/characters/MARIA/story.txt'},
+        'Amelia': {'avatar':'/assets/images/characters/AMELIA/amelia_avatar.png','story':'/assets/images/characters/AMELIA/story.txt'},
+        'Eva': {'avatar':'/assets/images/characters/EVA/eva_avatar.png','story':'/assets/images/characters/EVA/story.txt'},
+        'Isabella': {'avatar':'/assets/images/characters/ISABELLA/isabella_avatar.png','story':'/assets/images/characters/ISABELLA/story.txt'},
+        'Christina': {'avatar':'/assets/images/characters/CHRISTINA/christina_avatar.png','story':'/assets/images/characters/CHRISTINA/story.txt'},
+        'Dora': {'avatar':'/assets/images/characters/DORA/dora_avatar.png','story':'/assets/images/characters/DORA/story.txt'},
+        'Peter': {'avatar':'/assets/images/characters/PETER/peter_avatar.png','story':'/assets/images/characters/PETER/story.txt'},
+        'Spyros': {'avatar':'/assets/images/characters/SPYROS/spyros_avatar.png','story':'/assets/images/characters/SPYROS/story.txt'}
     };
 
     constructor(
         public page: Page,
         public router: RouterExtensions,
-        private http: HttpClient
     ) {
         super(page, router);
         this.screenWidth = Screen.mainScreen.widthDIPs;
@@ -54,19 +65,20 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
             this.slideView = this.slideElement.nativeElement;
             var row = new ItemSpec(1, GridUnitType.STAR);
             let gridLayout = new GridLayout();
-            this.slideFiles.forEach((dataFile, i) => {
-                const slidePath = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/slides/`) + dataFile);
-                var res = File.fromPath(slidePath).readTextSync(() => {
-                });
+            let i = 0;
+            for (let playerName in this.nameToImagePath) {
+                const slidePath = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/slides/slide.html`));
+                const storyPath = path.join(encodeURI(`${knownFolders.currentApp().path}`+this.nameToImagePath[playerName]['story']));
+                var res = File.fromPath(slidePath).readTextSync(() => {});
+                var story = File.fromPath(storyPath).readTextSync(() => {});
                 xml2js.parseString(res, {mergeAttrs: true}, (err, result) => {
                     if (err) {
                         throw err;
                     }
-                    const json = JSON.stringify(result, null, 4);
-                    var name = JSON.parse(json).GridLayout.GridLayout[0].Label[0].text[0];
-                    this.idToName[i] = name;
-                    console.log(i + '' + name);
-                    var imagePath = encodeURI(path.join(`${knownFolders.currentApp().path}` + this.nameToImagePath[name]));
+                    this.idToName[i] = playerName;
+                    res = res.replace('chrname', playerName);
+                    res = res.replace('story', story);
+                    var imagePath = encodeURI(path.join(`${knownFolders.currentApp().path}` + this.nameToImagePath[playerName]['avatar']));
                     res = res.replace('characterSrc', imagePath);
                     var element = Builder.parse(res);
                     GridLayout.setColumn(element, 0);
@@ -74,9 +86,9 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
                         element.opacity = 0;
                     }
                     gridLayout.addChildAtCell(element, i, 0);
+                    i++;
                 });
-
-            });
+            }
             gridLayout.addRow(row);
             this.slideView.content = (this.slidesView = gridLayout);
         }, 20);
@@ -94,7 +106,6 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
         }
         const currSlide = this.slidesView.getChildAt(prevSlideNum);
         const nextSlide = this.slidesView.getChildAt(this.currentSlideNum);
-        console.log(this.idToName[prevSlideNum] + '->' + this.idToName[this.currentSlideNum]);
         this.animate(currSlide, nextSlide, args.direction);
     }
 
@@ -129,6 +140,6 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
 
     onTap(args: GestureEventData) {
         var name = this.idToName[this.currentSlideNum];
-        this.router.navigate([this.REDIRECT_ROUTE, name], {replaceUrl: true});
+        this.router.navigate([this.REDIRECT_ROUTE, name.toUpperCase()], {replaceUrl: true});
     }
 }

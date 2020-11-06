@@ -1,23 +1,17 @@
 <GridLayout rows="*" columns="*, 4*, *" >
     <GridLayout row="0" col="0" >
-        <Image  [src]="rightChar" horizontalAlignment="right" verticalAlignment="bottom" ></Image>
+        <Image  [src]="leftChar" verticalAlignment="bottom" ></Image>
     </GridLayout>
-    <StackLayout #dialogsContent id="dialogs-content" row="0" col="1" >
-        <Image id="image" width="100%"></Image>
-        <Image *ngFor="let answer of answers" [id]="answer.id" [src]="answer.src" [score]="answer.score"
-               (tap)="answerTap($event,answer.id)"></Image>
-    </StackLayout>
+    <ScrollView row="0" col="1" orientation="vertical" ios.pagingEnabled="true" left="0" top="0" width="100%" height="75%">
+        <StackLayout orientation="vertical" #dialogsContent id="dialogs-content">
+                <Image *ngFor="let image of images" [id]="image.id" [src]="image.src" [score]="image.score" [state]="image.state"
+                       (tap)="onImageTap($event,image.id)"></Image>
+        </StackLayout>
+    </ScrollView>
     <GridLayout row="0" col="2" >
-        <Image [src]="leftChar"  horizontalAlignment="left" verticalAlignment="top"></Image>
+        <Image [src]="rightChar"   verticalAlignment="top"></Image>
         <Button id="button" class="-rounded-lg continue-button" horizontalAlignment="center" verticalAlignment="bottom"
-                (tap)="onTap($event)">
-            <FormattedString>
-                <Span text="CONTINUE   " class="gagalin-regular"></Span>
-                <Span class="fas" text="&#xf061;"></Span>
-            </FormattedString>
-        </Button>
-        <Button id="buttonQuestion" class="-rounded-lg continue-button" horizontalAlignment="center" verticalAlignment="bottom"
-                (tap)="onTapQuestion($event)" visibility="collapse">
+                (tap)="onContinueTap($event)">
             <FormattedString>
                 <Span text="CONTINUE   " class="gagalin-regular"></Span>
                 <Span class="fas" text="&#xf061;"></Span>

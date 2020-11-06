@@ -1,10 +1,25 @@
 import {AfterContentInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AppComponent} from '@src/app/app.component';
-import {GestureEventData, Image, Page, StackLayout} from '@nativescript/core';
+import {GestureEventData, Page, StackLayout} from '@nativescript/core';
 import {ActivatedRoute} from '@angular/router';
 import {RouterExtensions} from '@nativescript/angular';
 import {File, knownFolders, path} from 'tns-core-modules/file-system';
-import {Answer} from '@src/app/pages/dialogs/answer';
+import {ImagePayload} from '@src/app/pages/dialogs/imagePayload';
+import {Data} from '@src/app/domain/Data';
+
+enum State {
+    OnDescription,
+    OnStatements,
+    OnQuestion,
+    OnAnswer,
+    OnEnding,
+    OnFinal
+}
+
+enum Position {
+    Left,
+    Right
+}
 
 @Component({
     selector: 'app-dialogs',
@@ -13,36 +28,30 @@ import {Answer} from '@src/app/pages/dialogs/answer';
 })
 export class DialogsComponent extends AppComponent implements OnInit, AfterContentInit {
 
-    private questionsPayload = {};
-    private answersPayload = {};
     public rightChar: string;
     public leftChar: string;
-    private payload = [];
     private currentQuestion;
     private score: number;
     private background: string;
     private stackLayout: StackLayout;
-
-    answers: Answer[];
+    images: ImagePayload[];
     @ViewChild('dialogsContent')
     gridContent: ElementRef;
+    private state: State;
+    private payload = {};
+    private FEEDBACK_ROUTE = '/feedback';
 
     constructor(public page: Page,
                 public router: RouterExtensions,
+                private data: Data,
                 private activatedroute: ActivatedRoute) {
         super(page, router);
         this.activatedroute.params.subscribe(data => {
-            const filePath = encodeURI(path.join(`${knownFolders.currentApp().path}/assets/dialogs/` + data['id'] + '/dialog.json'));
+            const filePath = encodeURI(path.join(`${knownFolders.currentApp().path}/assets/images/characters/` + data['id'] + '/dialog.json'));
             const text = File.fromPath(filePath).readTextSync(() => {
             });
-            this.payload.push(JSON.parse(text).description);
-            this.questionsPayload = JSON.parse(text).Questions;
-            this.answersPayload = JSON.parse(text).Answers;
-            this.background = JSON.parse(text).background;
-            for (const value of JSON.parse(text).statements) {
-                this.payload.push(value);
-            }
-            console.log(this.answersPayload);
+            this.payload = JSON.parse(text).payload;
+            this.background = JSON.parse(text).Background;
             this.rightChar = encodeURI(`${knownFolders.currentApp().path}` + JSON.parse(text).rightChar);
             this.leftChar = encodeURI(`${knownFolders.currentApp().path}` + JSON.parse(text).leftChar);
         });
@@ -57,81 +66,84 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     }
 
     ngAfterContentInit() {
-        const image = <Image> this.page.getViewById('image');
-        const src = this.payload.shift();
-        image.src = encodeURI(path.join(`${knownFolders.currentApp().path}` + src));
+        this.images = new Array<ImagePayload>();
+        let source = this.payload['D1'];
+        const imageSource = encodeURI(path.join(`${knownFolders.currentApp().path}` + source['path']));
+        this.images.push({state: source['state'], x: source['x'], y: source['y'], score: source['score'], src: imageSource, 'id': 'D1'});
+        this.state = State.OnDescription;
     }
 
-    onTap(args: GestureEventData) {
-        const image = <Image> this.page.getViewById('image');
-        const src = this.payload.shift();
-        if (src != undefined) {
-            image.animate({
-                opacity: 0,
-                duration: 1000
-            }).then(() => {
-                image.src = encodeURI(path.join(`${knownFolders.currentApp().path}` + src));
-                image.animate({
-                    opacity: 1,
-                    duration: 1000
-                });
-            });
-        } else {
-            this.currentQuestion = this.questionsPayload['Q1'];
-            image.animate({
-                opacity: 0,
-                duration: 1000
-            }).then(() => {
-                this.changeContinueButton();
-                image.src = encodeURI(path.join(`${knownFolders.currentApp().path}` + this.currentQuestion['path']));
-                image.animate({
-                    opacity: 1,
-                    duration: 1000
-                });
-            });
+    onImageTap(args: GestureEventData, payloadId: string) {
+        if (this.state == State.OnQuestion) {
+            this.score += this.payload[payloadId].score;
+            this.updateDialog(payloadId);
+            this.changeContinueButtonVisibility();
         }
     }
 
-    onTapQuestion(args: GestureEventData) {
-        const image = <Image> this.page.getViewById('image');
-        image.animate({
-            opacity: 0,
-            duration: 1000
-        }).then(() => {
-            const image = <Image> this.page.getViewById('image');
-            image.set('visibility', 'collapse');
-            this.answers = new Array<Answer>();
-            for (var answerId of this.currentQuestion['leadsTo']) {
-                const answer = this.answersPayload[answerId];
-                const answerSource = encodeURI(path.join(`${knownFolders.currentApp().path}` + answer['path']));
-                this.answers.push({x: answer['x'], y: answer['y'], score: answer['score'], src: answerSource, 'id': answerId});
+    onContinueTap(args: GestureEventData) {
+        this.updateDialog(this.images[0].id);
+        this.changeContinueButtonVisibility();
+    }
+
+    private updateDialog(sourceId: string) {
+        this.images = new Array<ImagePayload>();
+        let source = this.payload[sourceId];
+        this.state = source['state'];
+        for (var target of source['leadsTo']) {
+            const src = this.payload[target];
+            if (src['state'] == State.OnDescription) {
+                const imageSource = encodeURI(path.join(`${knownFolders.currentApp().path}` + src['path']));
+                this.images.push({state: src['state'], x: src['x'], y: src['y'], score: src['score'], src: imageSource, 'id': target});
+            } else if (src['state'] == State.OnEnding) {
+                if(target === 'E1' && this.score >=0 && this.score <= 20){
+                    const imageSource = encodeURI(path.join(`${knownFolders.currentApp().path}` + src['path']));
+                    this.images.push({state: src['state'], x: src['x'], y: src['y'], score: src['score'], src: imageSource, 'id': target});
+                    this.updateAvatar(src);
+                }else if(target === 'E2' && this.score >=21 && this.score <= 30){
+                    const imageSource = encodeURI(path.join(`${knownFolders.currentApp().path}` + src['path']));
+                    this.images.push({state: src['state'], x: src['x'], y: src['y'], score: src['score'], src: imageSource, 'id': target});
+                    this.updateAvatar(src);
+                }else if(target === 'E3' && this.score >=31 && this.score <= 45){
+                    const imageSource = encodeURI(path.join(`${knownFolders.currentApp().path}` + src['path']));
+                    this.images.push({state: src['state'], x: src['x'], y: src['y'], score: src['score'], src: imageSource, 'id': target});
+                    this.updateAvatar(src);
+                }
+            }else if(src['state'] == State.OnFinal){
+                this.moveToFeedbackPage(src);
+            } else {
+                const imageSource = encodeURI(path.join(`${knownFolders.currentApp().path}` + src['path']));
+                this.images.push({state: src['state'], x: src['x'], y: src['y'], score: src['score'], src: imageSource, 'id': target});
+                this.updateAvatar(src);
             }
-            const buttonQuestion = <Image> this.page.getViewById('buttonQuestion');
-            buttonQuestion.set('visibility', 'collapse');
-        });
+        }
     }
 
-    answerTap(args: GestureEventData, answerId: number) {
-        console.log(answerId);
-        this.score += this.answersPayload[answerId].score;
-        this.answers = [];
-        const buttonQuestion = <Image> this.page.getViewById('buttonQuestion');
-        buttonQuestion.set('visibility', '');
-        const image = <Image> this.page.getViewById('image');
-        console.log(this.answersPayload[answerId].leadsTo[0]);
-        this.currentQuestion = this.questionsPayload[this.answersPayload[answerId].leadsTo[0]];
-        image.src = encodeURI(path.join(`${knownFolders.currentApp().path}` + this.currentQuestion['path']));
-        image.animate({
-            opacity: 1,
-            duration: 1000
-        }).then(() => {
-        });
+    private changeContinueButtonVisibility() {
+        if (this.state == State.OnQuestion) {
+            const button = this.page.getViewById('button');
+            button.set('visibility', 'collapse');
+        }
+        if (this.state == State.OnAnswer) {
+            const button = this.page.getViewById('button');
+            button.set('visibility', '');
+        }
     }
 
-    private changeContinueButton() {
-        const button = <Image> this.page.getViewById('button');
-        button.set('visibility', 'collapse');
-        const buttonQuestion = <Image> this.page.getViewById('buttonQuestion');
-        buttonQuestion.set('visibility', '');
+    private updateAvatar(source: any) {
+        if (source['state'] == State.OnQuestion || source['state'] == State.OnStatements || source['state'] == State.OnFinal) {
+            if (source['avatarPosition'] == Position.Left) {
+                this.leftChar = encodeURI(`${knownFolders.currentApp().path}` + source['avatar']);
+            } else {
+                this.rightChar = encodeURI(`${knownFolders.currentApp().path}` + source['avatar']);
+            }
+        }
+    }
+
+    private moveToFeedbackPage(source: any) {
+        if (source['state'] == State.OnFinal) {
+            this.data.storage = {"avatar": this.leftChar,"score":this.score,"description":source['description'],"feedback":source['feedback']};
+            this.router.navigate([this.FEEDBACK_ROUTE]);
+        }
     }
 }

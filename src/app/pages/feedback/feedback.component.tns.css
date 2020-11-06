@@ -1,0 +1,30 @@
+/* Add mobile styles for the component here.  */
+
+.score{
+    color: black;
+    font-size: 36;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.feedback{
+    color: black;
+    font-size: 15;
+    borderColor: #DEDEDE;
+    borderWidth: 1;
+    /*height: 300px;*/
+    background: #39459b;
+    border: 10px solid #0d99d7;
+}
+
+.description{
+    color: black;
+    font-size: 15;
+    borderColor: #DEDEDE;
+    borderWidth: 1;
+    /*height: 300px;*/
+    margin-top: 20;
+    text-align: center;
+    /*text-align: center;*/
+}
+
