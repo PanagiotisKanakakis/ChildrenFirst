@@ -10,6 +10,7 @@ import {CharacterInformationComponent} from '@src/app/pages/character-informatio
 import {DialogsComponent} from '@src/app/pages/dialogs/dialogs.component';
 import {FeedbackComponent} from '@src/app/pages/feedback/feedback.component';
 import {Data} from '@src/app/domain/Data';
+import { InformationComponent } from '@src/app/pages/information/information.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {Data} from '@src/app/domain/Data';
         CharacterSelectionComponent,
         CharacterInformationComponent,
         DialogsComponent,
-        FeedbackComponent
+        FeedbackComponent,
+        InformationComponent
     ],
     imports: [
         BrowserModule,

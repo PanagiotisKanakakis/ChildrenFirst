@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GestureEventData, Page} from '@nativescript/core';
 import {RouterExtensions} from '@nativescript/angular';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, NavigationExtras} from '@angular/router';
 import {AppComponent} from '@src/app/app.component';
 import {Data} from '@src/app/domain/Data';
 
@@ -16,6 +16,7 @@ export class FeedbackComponent extends AppComponent implements OnInit {
   public feedback: string;
   public description: string;
   public score: string;
+  private REDIRECT_ROUTE = ['/characters'];
 
   constructor(public page: Page,
               public router: RouterExtensions,
@@ -33,7 +34,7 @@ export class FeedbackComponent extends AppComponent implements OnInit {
   }
 
   onTap(args: GestureEventData) {
-
+    this.router.navigate(this.REDIRECT_ROUTE, {clearHistory: true} as NavigationExtras);
   }
 
 }

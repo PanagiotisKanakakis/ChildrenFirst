@@ -1,33 +1,22 @@
 <Page class="page coverImage" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <GridLayout rows="*" columns="*, 4*">
+    <GridLayout rows="*" columns="*, 4*,*">
         <GridLayout row="0" col="0">
-            <GridLayout rows="*, 2*" columns="*">
-                <GridLayout row="0" col="0">
-                    <Label [text]=score class="gagalin-regular score" textWrap="true"></Label>
-                </GridLayout>
-                <GridLayout row="1" col="0">
-                    <Label></Label>
-                    <Image   [src]="characterSrc" horizontalAlignment="center" verticalAlignment="middle"></Image>
-                </GridLayout>
-            </GridLayout>
+            <Label class="gagalin-regular score" [text]=score textWrap="true"></Label>
+            <Image [src]="characterSrc" verticalAlignment="bottom"></Image>
         </GridLayout>
-        <GridLayout row="0" col="1">
-            <GridLayout rows="*,*" columns="*">
-                <GridLayout row="0" col="0" width="70%">
-                    <Label [text]=description class="gagalin-regular description" textWrap="true"></Label>
-                </GridLayout>
-                <GridLayout row="1" col="0" width="70%">
-                    <Label [text]=feedback class="gagalin-regular feedback" textWrap="true"></Label>
-                    <Button id="button" class="-rounded-lg continue-button" horizontalAlignment="center"
-                            verticalAlignment="bottom"
-                            (tap)="onTap($event)">
-                        <FormattedString>
-                            <Span text="THANKS FOR PLAYING! CHOOSE ANOTHER CHARACTER   " class="gagalin-regular"></Span>
-                            <Span class="fas" text="&#xf061;"></Span>
-                        </FormattedString>
-                    </Button>
-                </GridLayout>
-            </GridLayout>
+        <StackLayout row="0" col="1" orientation="vertical">
+            <Label class="gagalin-regular border" [text]=description textWrap="true"></Label>
+            <Label class="gagalin-regular border" [text]=feedback textWrap="true"></Label>
+        </StackLayout>
+        <GridLayout row="0" col="2">
+            <Button id="button" class="-rounded-lg continue-button" horizontalAlignment="center"
+                    verticalAlignment="bottom"
+                    (tap)="onTap($event)">
+                <FormattedString>
+                    <Span text="THANKS FOR PLAYING! CHOOSE ANOTHER CHARACTER   " class="gagalin-regular"></Span>
+                    <Span class="fas" text="&#xf061;"></Span>
+                </FormattedString>
+            </Button>
         </GridLayout>
     </GridLayout>
 </Page>

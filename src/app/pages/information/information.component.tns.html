@@ -1,0 +1,20 @@
+<Page class="page coverImage" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <GridLayout rows="*" columns="*,5*,*">
+        <GridLayout row="0" col="0">
+            <Image [src]="avatar" verticalAlignment="bottom"></Image>
+        </GridLayout>
+        <StackLayout row="0" col="1" orientation="vertical" id="info-content">
+            <Label class="gagalin-regular question" [text]=question textWrap="true"></Label>
+            <Label class="gagalin-regular answer" [text]=answer textWrap="true"></Label>
+        </StackLayout>
+        <GridLayout row="0" col="2">
+            <Button id="button" class="-rounded-lg continue-button" verticalAlignment="bottom"
+                    (tap)="onNextTap($event)">
+                <FormattedString>
+                    <Span text="NEXT   " class="gagalin-regular"></Span>
+                    <Span class="fas" text="&#xf061;"></Span>
+                </FormattedString>
+            </Button>
+        </GridLayout>
+    </GridLayout>
+</Page>

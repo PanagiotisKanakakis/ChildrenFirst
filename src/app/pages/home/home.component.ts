@@ -14,7 +14,7 @@ export class HomeComponent extends AppComponent implements OnInit{
     public bgSrc: string;
     public logoSrc: string;
     public buttonSrc: string;
-    private REDIRECT_ROUTE = ['/characters'];
+    private REDIRECT_ROUTE = ['/information'];
 
     constructor(
         public router: RouterExtensions,
