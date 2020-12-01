@@ -1,22 +1,31 @@
 <GridLayout class="page coverImage" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <GridLayout rows="*" columns="*, 4*,*">
+    <GridLayout rows="*" columns="*,5*">
         <GridLayout row="0" col="0">
             <Label class="gagalin-regular score" [text]=score textWrap="true"></Label>
             <Image [src]="characterSrc" verticalAlignment="bottom"></Image>
         </GridLayout>
-        <StackLayout row="0" col="1" orientation="vertical">
-            <Label class="gagalin-regular border" [text]=description textWrap="true"></Label>
-            <Label class="gagalin-regular border" [text]=feedback textWrap="true"></Label>
-        </StackLayout>
-        <GridLayout row="0" col="2">
-            <Button id="button" class="-rounded-lg continue-button" horizontalAlignment="center"
-                    verticalAlignment="bottom"
-                    (tap)="onTap($event)">
-                <FormattedString>
-                    <Span text="THANKS FOR PLAYING! CHOOSE ANOTHER CHARACTER   " class="gagalin-regular"></Span>
-                    <Span class="fas" text="&#xf061;"></Span>
-                </FormattedString>
-            </Button>
+        <GridLayout row="0" col="1" orientation="vertical" id="info-content">
+            <GridLayout rows="*,3*,*" columns="*">
+                <GridLayout row="0" col="0">
+                    <Label class="gagalin-regular title" text="Feedback"></Label>
+                </GridLayout>
+                <GridLayout row="1" col="0">
+                    <Label class="gagalin-regular comment" [text]=comment textWrap="true"></Label>
+                </GridLayout>
+                <GridLayout row="2" col="0">
+                    <Button id="playAgainButton" class="-rounded-lg play-again-button gagalin-regular" verticalAlignment="bottom"
+                            horizontalAlignment="right" (tap)="onPlayAgainTap($event)" >
+                            <FormattedString>
+                                <Span text="THANKS FOR PLAYING! CHOOSE ANOTHER CHARACTER   " class="gagalin-regular"></Span>
+                                <Span class="fas" text="&#xf061;"></Span>
+                            </FormattedString>
+                    </Button>
+                    <Button id="nextButton" class="-rounded-lg next-button gagalin-regular" verticalAlignment="bottom"
+                            horizontalAlignment="right"
+                            (tap)="onNextTap($event)" text="NEXT">
+                    </Button>
+                </GridLayout>
+            </GridLayout>
         </GridLayout>
     </GridLayout>
 </GridLayout>

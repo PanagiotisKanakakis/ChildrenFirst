@@ -10,10 +10,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "build": "tns build android --release --key-store-path childrenFirst.jks --key-store-password E#Szvnidd --key-store-alias ChildrenFirst --key-store-alias-password E#Szvnidd",
     "android-phone": "tns run android ",
     "android-emulator": "tns run android --device  emulator-5554",
     "available-devices": "tns device android --available-devices",

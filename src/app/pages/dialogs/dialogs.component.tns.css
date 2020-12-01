@@ -1,6 +1,11 @@
 /* Add mobile styles for the component here.  */
-.continue-button {
-    background-color: white;
-    font-style: italic;
-}
 
+.next-dialog-button{
+    background-color: lightgray;
+    opacity: 0.9;
+    font-style: italic;
+    border-radius: 50%;
+    text-align: center;
+    margin-bottom: 10;
+    margin-right: 20;
+}

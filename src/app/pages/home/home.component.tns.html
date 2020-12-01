@@ -2,23 +2,10 @@
       navigatingTo="navigatingTo" >
     <GridLayout rows="*" columns="*" class="background" [backgroundImage]="logoSrc">
         <GridLayout row="0" col="0"  >
-            <Button  class="-rounded-lg continue-button" horizontalAlignment="right" verticalAlignment="bottom"
-                     (tap)="onTap($event)">
-                <FormattedString>
-                    <Span text="START   " class="gagalin-regular"></Span>
-                    <Span class="fas" text="&#xf061;"></Span>
-                </FormattedString>
+            <Button  class="-rounded-lg continue-button gagalin-regular" horizontalAlignment="right" verticalAlignment="bottom"
+                     (tap)="onTap($event)" text="START">
             </Button>
         </GridLayout>
     </GridLayout>
-    <!--<GridLayout class="background" rows="auto" columns="auto" [backgroundImage]="logoSrc">
-        <Button  class="-rounded-lg continue-button" horizontalAlignment="right" verticalAlignment="bottom"
-                (tap)="onTap($event)">
-            <FormattedString>
-                <Span text="START   " class="gagalin-regular"></Span>
-                <Span class="fas" text="&#xf061;"></Span>
-            </FormattedString>
-        </Button>
-    </GridLayout>-->
 </GridLayout>
 

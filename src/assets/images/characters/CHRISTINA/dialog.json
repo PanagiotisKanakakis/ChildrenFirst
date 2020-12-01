@@ -1,11 +1,11 @@
 {
-  "rightChar": "/assets/images/characters/CHRISTINA/alex_avatar.png",
+  "rightChar": "/assets/images/characters/CHRISTINA/alex_avatar.webp",
   "leftChar": "/assets/images/characters/CHRISTINA/christina_avatar.png",
-  "Background": "/assets/images/characters/CHRISTINA/park_scenery.png",
+  "Background": "/assets/images/characters/CHRISTINA/park_scenery.webp",
   "payload": {
     "D1": {
       "state": 0,
-      "path": "/assets/images/characters/CHRISTINA/BUBBLES/description.jpg",
+      "path": "/assets/images/characters/CHRISTINA/BUBBLES/ending1.png",
       "leadsTo": ["S1"]
     },
     "S1": {
@@ -213,8 +213,8 @@
     },
     "FL1": {
       "state": 5,
-      "feedback": "Good effort! Next time though try to be more open-minded regarding gender roles and equality\nbetween tween relationships of the same or different sex. Gender-based violence takes various\nforms so next time around to take a moment to think through your decisions before you actually\nact.",
-      "description": "Gender stereotypes are…."
+      "description": "Good effort! Next time though try to be more open-minded regarding gender roles and equality\nbetween tween relationships of the same or different sex. Gender-based violence takes various\nforms so next time around to take a moment to think through your decisions before you actually\nact.",
+      "feedback": "Gender stereotypes are…."
     },
     "FL2": {
       "state": 5,

@@ -1,4 +1,11 @@
 .continue-button {
-    background-color: white;
+    background-color: mediumpurple;
+    color: yellowgreen;
     font-style: italic;
+    border-radius: 50%;
+    font-size: 25;
+    text-align: center;
+    width: 20%;
+    margin-bottom: 10;
+    margin-right: 20;
 }

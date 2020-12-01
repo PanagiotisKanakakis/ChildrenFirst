@@ -10,10 +10,10 @@
     </ScrollView>
     <GridLayout row="0" col="2" >
         <Image [src]="rightChar"   verticalAlignment="top"></Image>
-        <Button id="button" class="-rounded-lg continue-button" horizontalAlignment="center" verticalAlignment="bottom"
-                (tap)="onContinueTap($event)">
+        <Button id="button" class="-rounded-lg next-dialog-button"  verticalAlignment="bottom"
+                (tap)="onContinueTap($event)" >
             <FormattedString>
-                <Span text="CONTINUE   " class="gagalin-regular"></Span>
+                <Span text="CONTINUE " class="gagalin-regular"></Span>
                 <Span class="fas" text="&#xf061;"></Span>
             </FormattedString>
         </Button>

@@ -1,6 +1,6 @@
 /* Add mobile styles for the component here.  */
 
-.score{
+.score {
     color: black;
     font-size: 36;
     margin-top: 20px;
@@ -8,20 +8,29 @@
 }
 
 
-StackLayout Label {
+.title {
+    margin-top: 30px;
+    margin-bottom: 40px;
     color: black;
+    text-decoration: underline;
+    font-style: italic;
+    font-size: 36;
+    text-align: center;
+}
+
+.comment{
+    margin-right: 10px;
+    margin-left: 30px;
+    font-size: 20;
+}
+
+.play-again-button{
+    font-style: italic;
+    border-radius: 50%;
     font-size: 15;
-    margin: 30;
+    text-align: center;
+    width: 40%;
+    margin-bottom: 10;
+    margin-right: 20;
 }
-
-.border{
-    background-color: transparent;
-    border-color: #3E99ED;
-    border-style: dotted;
-    color: #3E99ED;
-    border-width: 5;
-    border-radius: 50% 10%;
-    padding: 15;
-}
-
 

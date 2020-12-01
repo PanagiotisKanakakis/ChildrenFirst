@@ -20,11 +20,10 @@ export class AppComponent implements OnInit {
         public page: Page,
         public router: RouterExtensions
     ) {
-        orientation.setOrientation('landscape', false);
-        orientation.disableRotation();
+        // orientation.setOrientation('landscape', false);
+        // orientation.disableRotation();
 
         if (androidApp && device.sdkVersion >= '21') {
-            console.log('Disabling status bar');
             const View = android.view.View;
             const window = androidApp.startActivity.getWindow();
             const decorView = window.getDecorView();
