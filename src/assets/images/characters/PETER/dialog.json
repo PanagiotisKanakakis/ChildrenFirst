@@ -1,0 +1,287 @@
+{
+  "rightChar": "/assets/images/characters/PETER/maria_avatar.webp",
+  "leftChar": "/assets/images/characters/PETER/peter_avatar.webp",
+  "Background": "/assets/images/characters/PETER/dining_room_scenery.webp",
+  "payload": {
+    "D1": {
+      "state": 0,
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_description.webp",
+      "leadsTo": [
+        "S1"
+      ]
+    },
+    "D2": {
+      "state": 0,
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_FINALSCREEN.webp",
+      "leadsTo": [
+        "E1",
+        "E2",
+        "E3"
+      ]
+    },
+    "S1": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_description.webp",
+      "leadsTo": [
+        "S2"
+      ],
+      "avatar": "/assets/images/characters/PETER/maria_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S2": {
+      "path": "/assets/images/characters/PETER/BUBBLES/sister_con1_st1.webp",
+      "leadsTo": [
+        "S3"
+      ],
+      "avatar": "/assets/images/characters/PETER/maria_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S3": {
+      "path": "/assets/images/characters/PETER/BUBBLES/mother_con1_st1.webp",
+      "leadsTo": [
+        "S4"
+      ],
+      "avatar": "/assets/images/characters/PETER/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S4": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_con1_st1.webp",
+      "leadsTo": [
+        "Q1"
+      ],
+      "avatar": "/assets/images/characters/PETER/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+
+    "Q1": {
+      "path": "/assets/images/characters/PETER/BUBBLES/father_con1_st1.webp",
+      "leadsTo": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "avatar": "/assets/images/characters/PETER/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q2": {
+      "path": "/assets/images/characters/PETER/BUBBLES/sister_con2_st1.webp",
+      "leadsTo": [
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "avatar": "/assets/images/characters/PETER/maria_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q3": {
+      "path": "/assets/images/characters/PETER/BUBBLES/father_con3_st1.webp",
+      "leadsTo": [
+        "A8",
+        "A9",
+        "A10"
+      ],
+      "avatar": "/assets/images/characters/PETER/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q4": {
+      "path": "/assets/images/characters/PETER/BUBBLES/mother_con4_st1.webp",
+      "leadsTo": [
+        "A11",
+        "A12"
+      ],
+      "avatar": "/assets/images/characters/PETER/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "A1": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q1_A1.webp",
+      "leadsTo": [
+        "Q2"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A2": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q1_A2.webp",
+      "leadsTo": [
+        "Q3"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A3": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q1_A3.webp",
+      "leadsTo": [
+        "Q3"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A4": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q2_A1.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A5": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q2_A2.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A6": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q2_A3.webp",
+      "leadsTo": [
+        "Q3"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A7": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q2_A4.webp",
+      "leadsTo": [
+        "Q3"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A8": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q3_A1.webp",
+      "leadsTo": [
+        "Q4"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A9": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q3_A2.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A10": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q3_A3.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A11": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q4_A1.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A12": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_Q4_A2.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/PETER/peter_avatar.webp",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "E1": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_ending1.webp",
+      "leadsTo": [
+        "FL1"
+      ],
+      "state": 4,
+      "avatar": "/assets/images/characters/PETER/father_avatar.webp",
+      "avatarPosition": 1
+    },
+    "FL1": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_ending1_description.webp",
+      "leadsTo": [
+        "FS1"
+      ],
+      "state": 0
+    },
+    "E2": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_ending2.webp",
+      "leadsTo": [
+        "FL2"
+      ],
+      "state": 4,
+      "avatar": "/assets/images/characters/PETER/mother_avatar.webp",
+      "avatarPosition": 1
+    },
+    "FL2": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_ending2_description.webp",
+      "leadsTo": [
+        "FS2"
+      ],
+      "state": 0
+    },
+    "E3": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_ending3.webp",
+      "leadsTo": [
+        "FL3"
+      ],
+      "state": 4,
+      "avatar": "/assets/images/characters/PETER/maria_avatar.webp",
+      "avatarPosition": 1
+    },
+    "FL3": {
+      "path": "/assets/images/characters/PETER/BUBBLES/peter_ending3_description.webp",
+      "leadsTo": [
+        "FS2"
+      ],
+      "state": 0
+    },
+    "FS1": {
+      "state": 5,
+      "description": "Good effort! Next time though try to be more unrestrained and talkative. Our gender identity is not something that we should take for granted, but also not something that we should feel ashamed for. Social perceptions of sex and genders is not always easy to understand so take a moment to think again through your decision during this process. ",
+      "feedback": ""
+    },
+    "FS2": {
+      "state": 5,
+      "description": "Great job! You have been really cooperative and you have taken some brave decisions that combat gender stereotypes. In order to make gender equality a reality though, deep-rooted stereotypes regarding gender should be once and for all eliminated.",
+      "feedback": ""
+    },
+    "FS3": {
+      "state": 5,
+      "description": "Excellent work, congratulations! Peter is very happy with your choices, you have managed to freely express your gender identity, your thoughts and associated interests. Your behaviour fosters tolerance and respect to one’s (human) rights.  ",
+      "feedback": ""
+    }
+  }
+}

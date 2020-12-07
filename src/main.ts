@@ -4,6 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from '@src/app/app.module';
 import { environment } from '@src/environments/environment';
 require( 'nativescript-platform-css' );
+
 if (environment.production) {
   enableProdMode();
 }

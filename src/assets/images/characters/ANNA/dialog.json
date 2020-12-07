@@ -1,0 +1,280 @@
+{
+  "rightChar": "/assets/images/characters/ANNA/mother_avatar.webp",
+  "leftChar": "/assets/images/characters/ANNA/anna_avatar.webp",
+  "Background": "/assets/images/characters/ANNA/beach_scenery.webp",
+  "payload": {
+    "D1": {
+      "state": 0,
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_description.webp",
+      "leadsTo": [
+        "S1"
+      ]
+    },
+    "D2": {
+      "state": 0,
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_FINALSCREEN.webp",
+      "leadsTo": [
+        "E1",
+        "E2",
+        "E3"
+      ]
+    },
+    "S1": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_description.webp",
+      "leadsTo": [
+        "S2"
+      ],
+      "avatar": "/assets/images/characters/ANNA/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S2": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_con1_st1.webp",
+      "leadsTo": [
+        "S3"
+      ],
+      "avatar": "/assets/images/characters/ANNA/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S3": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/father_con1_st1.webp",
+      "leadsTo": [
+        "S4"
+      ],
+      "avatar": "/assets/images/characters/ANNA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S4": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_con1_st2.webp",
+      "leadsTo": [
+        "Q1"
+      ],
+      "avatar": "/assets/images/characters/ANNA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S5": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/mother_con3_st1.webp",
+      "leadsTo": [
+        "Q3"
+      ],
+      "avatar": "/assets/images/characters/ANNA/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S6": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/mother_con4_st1.webp",
+      "leadsTo": [
+        "Q4"
+      ],
+      "avatar": "/assets/images/characters/ANNA/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "Q1": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/father_con1_st2.webp",
+      "leadsTo": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "avatar": "/assets/images/characters/ANNA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q2": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/father_con2_st1.webp",
+      "leadsTo": [
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "avatar": "/assets/images/characters/ANNA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q3": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/father_con3_st1.webp",
+      "leadsTo": [
+        "A8",
+        "A9",
+        "A10"
+      ],
+      "avatar": "/assets/images/characters/ANNA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q4": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/father_con4_st1.webp",
+      "leadsTo": [
+        "A11",
+        "A12"
+      ],
+      "avatar": "/assets/images/characters/ANNA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "A1": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_Q1_A1.webp",
+      "leadsTo": [
+        "Q2"
+      ],
+      "avatar": "/assets/images/characters/ANNA/anna_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A2": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_Q1_A2.webp",
+      "leadsTo": [
+        "S5"
+      ],
+      "avatar": "/assets/images/characters/ANNA/anna_avatar.webp",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A3": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_Q1_A3.webp",
+      "leadsTo": [
+        "S5"
+      ],
+      "avatar": "/assets/images/characters/ANNA/anna_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A4": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_Q2_A1.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/ANNA/anna_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A5": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_Q2_A2.webp",
+      "leadsTo": [
+        "S5"
+      ],
+      "avatar": "/assets/images/characters/ANNA/anna_avatar.webp",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A6": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_Q2_A3.webp",
+      "leadsTo": [
+        "S5"
+      ],
+      "avatar": "/assets/images/characters/ANNA/anna_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A8": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_Q3_A1.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/ANNA/anna_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A9": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_Q3_A2.webp",
+      "leadsTo": [
+        "S6"
+      ],
+      "avatar": "/assets/images/characters/ANNA/anna_avatar.webp",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A10": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_Q3_A3.webp",
+      "leadsTo": [
+        "S6"
+      ],
+      "avatar": "/assets/images/characters/ANNA/anna_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A11": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_Q4_A1.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/ANNA/anna_avatar.webp",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A12": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_Q4_A2.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/ANNA/anna_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "E1": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/father_ending1.webp",
+      "leadsTo": [
+        "FL1"
+      ],
+      "state": 4
+    },
+    "FL1": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_description_ending1.webp",
+      "leadsTo": [
+        "FS1"
+      ],
+      "state": 0
+    },
+    "E2": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/father_ending2.webp",
+      "leadsTo": [
+        "FL2"
+      ],
+      "state": 4
+    },
+    "FL2": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_description_ending2.webp",
+      "leadsTo": [
+        "FS2"
+      ],
+      "state": 0
+    },
+    "E3": {
+      "path": "/assets/images/characters/ANNA/BUBBLES/anna_description_ending3.webp",
+      "leadsTo": [
+        "FS3"
+      ],
+      "state": 4
+    },
+    "FS1": {
+      "state": 5,
+      "description": "Nice try! However, next time try to be more communicative and less aggressive in reactions.",
+      "feedback": "Anna is growing up fast, and even if she continues to look for her parents advises on everything she does or thinks, it becomes difficult to find a point of connection with her family. From the very beginning, her father was minimizing her thoughts and this made her trigger.\nBecause of her hostile reaction, she did not even succeed in telling everything she wanted to tell about Mattia’s behaviours, about how they are hurting her and are making her feel bad, unsafe. \nFor the next time, even when people around you seem not to understand you and to be anchored to stereotypes and norms, try to find a more constructive way to express your feelings, in this way you could help people around you to overcome stereotypes, and to better understand and help you.\n"
+    },
+    "FS2": {
+      "state": 5,
+      "description": "Great effort! Very good job in expressing your feelings, which is the first point for making people understand what’s happening. It is a hard trip and this takes time, but you are on your way for happiness!",
+      "feedback": "As Anna’s mum was saying, control over partners is not a sign of love! Doubting about everything you say and asking for proofs; asking to check your phone or to send your localisation or photos; forbidding to go out with friends or to wear what you like the most… these are all alarming signals which should never be underestimated or seen as “normal”. A healthy relationship is made up of mutual understanding, respect and protection of the other’s spaces. If you feel that these elements lack in your relationship, you should rethink about what makes you happy. And do not hesitate to ask for help or advice!"
+    },
+    "FS3": {
+      "state": 5,
+      "description": "It seems that your choices have made Anna happy. Also thanks to this discussion with her parents, she is now able to estimate what should or shouldn’t be done in a relationship, and empowered to always put her happiness at the centre. ",
+      "feedback": ""
+    }
+  }
+}

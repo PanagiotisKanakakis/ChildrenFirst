@@ -131,7 +131,8 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     }
 
     private updateAvatar(source: any) {
-        if (source['state'] == State.OnQuestion || source['state'] == State.OnStatements || source['state'] == State.OnFinal) {
+        if (source['state'] == State.OnQuestion || source['state'] == State.OnStatements ||
+            source['state'] == State.OnEnding || source['state'] == State.OnFinal) {
             if (source['avatarPosition'] == Position.Left) {
                 this.leftChar = encodeURI(`${knownFolders.currentApp().path}` + source['avatar']);
             } else {

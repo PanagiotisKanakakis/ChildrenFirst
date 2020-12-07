@@ -1,7 +1,7 @@
 {
-  "name": "childrens-first-cross-platform",
+  "name": "children-first",
   "nativescript": {
-    "id": "org.nativescript.childrensfirstcrossplatform",
+    "id": "org.nativescript.childrenfirst",
     "tns-android": {
       "version": "6.5.3"
     }
@@ -15,9 +15,10 @@
     "e2e": "ng e2e",
     "build": "tns build android --release --key-store-path childrenFirst.jks --key-store-password E#Szvnidd --key-store-alias ChildrenFirst --key-store-alias-password E#Szvnidd",
     "android-phone": "tns run android ",
-    "android-emulator": "tns run android --device  emulator-5554",
+    "debug": "tns device log",
+    "android-emulator": "tns run android --no-hmr --emulator",
     "available-devices": "tns device android --available-devices",
-    "device": "tns device run org.nativescript.childrensfirstcrossplatform",
+    "device": "tns device run org.nativescript.childrenfirst ",
     "ios": "tns run ios --no-hmr",
     "mobile": "tns run",
     "preview": "tns preview",
@@ -39,10 +40,11 @@
     "@nativescript/theme": "~2.2.1",
     "core-js": "^2.6.9",
     "nativescript-fontawesome": "^1.0.0",
+    "nativescript-platform-css": "^1.6.10",
     "nativescript-screen-orientation": "^2.0.0",
     "rxjs": "~6.5.5",
-    "xml-js": "^1.6.11",
     "timers": "^0.1.1",
+    "xml-js": "^1.6.11",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

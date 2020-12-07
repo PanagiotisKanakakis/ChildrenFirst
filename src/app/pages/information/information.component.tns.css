@@ -1,14 +1,16 @@
 /* Add mobile styles for the component here.  */
 
+
 .question{
     margin-top: 30px;
     margin-bottom: 40px;
     color: black;
     text-decoration: underline;
     font-style: italic;
-    font-size: 36;
+    font-size: 30;
     text-align: center;
 }
 
 .answer{
+    font-size: 20;
 }

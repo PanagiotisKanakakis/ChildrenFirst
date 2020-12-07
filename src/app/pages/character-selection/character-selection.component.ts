@@ -32,22 +32,22 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
     private idToName = {};
 
     private nameToImagePath = {
-        'Mimi': {'avatar':'/assets/images/characters/MIMI/mimi_avatar.png','story':'/assets/images/characters/MIMI/story.txt'},
-        'Lisa': {'avatar':'/assets/images/characters/LISA/lisa_avatar.png','story':'/assets/images/characters/LISA/story.txt'},
-        'Selina': {'avatar':'/assets/images/characters/SELINA/selina_avatar.png','story':'/assets/images/characters/SELINA/story.txt'},
-        'Anna': {'avatar':'/assets/images/characters/ANNA/anna_avatar.png','story':'/assets/images/characters/ANNA/story.txt'},
-        'Christian': {'avatar':'/assets/images/characters/CHRISTIAN/christian_avatar.png','story':'/assets/images/characters/CHRISTIAN/story.txt'},
-        'Luca': {'avatar':'/assets/images/characters/LUCA/luca_avatar.png','story':'/assets/images/characters/LUCA/story.txt'},
-        'Georgia': {'avatar':'/assets/images/characters/GEORGIA/georgia_avatar.png','story':'/assets/images/characters/GEORGIA/story.txt'},
-        'Iman': {'avatar':'/assets/images/characters/IMAN/iman_avatar.png','story':'/assets/images/characters/IMAN/story.txt'},
-        'Maria': {'avatar':'/assets/images/characters/MARIA/maria_avatar.png','story':'/assets/images/characters/MARIA/story.txt'},
-        'Amelia': {'avatar':'/assets/images/characters/AMELIA/amelia_avatar.png','story':'/assets/images/characters/AMELIA/story.txt'},
-        'Eva': {'avatar':'/assets/images/characters/EVA/eva_avatar.png','story':'/assets/images/characters/EVA/story.txt'},
-        'Isabella': {'avatar':'/assets/images/characters/ISABELLA/isabella_avatar.png','story':'/assets/images/characters/ISABELLA/story.txt'},
-        'Christina': {'avatar':'/assets/images/characters/CHRISTINA/christina_avatar.png','story':'/assets/images/characters/CHRISTINA/story.txt'},
-        'Dora': {'avatar':'/assets/images/characters/DORA/dora_avatar.png','story':'/assets/images/characters/DORA/story.txt'},
-        'Peter': {'avatar':'/assets/images/characters/PETER/peter_avatar.png','story':'/assets/images/characters/PETER/story.txt'},
-        'Spyros': {'avatar':'/assets/images/characters/SPYROS/spyros_avatar.png','story':'/assets/images/characters/SPYROS/story.txt'}
+        'Mimi': {'avatar':'/assets/images/characters/MIMI/mimi_avatar.webp','story':'/assets/images/characters/MIMI/story.txt'},
+        'Lisa': {'avatar':'/assets/images/characters/LISA/lisa_avatar.webp','story':'/assets/images/characters/LISA/story.txt'},
+        'Selina': {'avatar':'/assets/images/characters/SELINA/selina_avatar.webp','story':'/assets/images/characters/SELINA/story.txt'},
+        'Anna': {'avatar':'/assets/images/characters/ANNA/anna_avatar.webp','story':'/assets/images/characters/ANNA/story.txt'},
+        'Christian': {'avatar':'/assets/images/characters/CHRISTIAN/christian_avatar.webp','story':'/assets/images/characters/CHRISTIAN/story.txt'},
+        'Luca': {'avatar':'/assets/images/characters/LUCA/luca_avatar.webp','story':'/assets/images/characters/LUCA/story.txt'},
+        'Georgia': {'avatar':'/assets/images/characters/GEORGIA/georgia_avatar.webp','story':'/assets/images/characters/GEORGIA/story.txt'},
+        'Iman': {'avatar':'/assets/images/characters/IMAN/iman_avatar.webp','story':'/assets/images/characters/IMAN/story.txt'},
+        'Maria': {'avatar':'/assets/images/characters/MARIA/maria_avatar.webp','story':'/assets/images/characters/MARIA/story.txt'},
+        'Amelia': {'avatar':'/assets/images/characters/AMELIA/amelia_avatar.webp','story':'/assets/images/characters/AMELIA/story.txt'},
+        'Eva': {'avatar':'/assets/images/characters/EVA/eva_avatar.webp','story':'/assets/images/characters/EVA/story.txt'},
+        'Isabella': {'avatar':'/assets/images/characters/ISABELLA/isabella_avatar.webp','story':'/assets/images/characters/ISABELLA/story.txt'},
+        'Christina': {'avatar':'/assets/images/characters/CHRISTINA/christina_avatar.webp','story':'/assets/images/characters/CHRISTINA/story.txt'},
+        'Dora': {'avatar':'/assets/images/characters/DORA/dora_avatar.webp','story':'/assets/images/characters/DORA/story.txt'},
+        'Peter': {'avatar':'/assets/images/characters/PETER/peter_avatar.webp','story':'/assets/images/characters/PETER/story.txt'},
+        'Spyros': {'avatar':'/assets/images/characters/SPYROS/spyros_avatar.webp','story':'/assets/images/characters/SPYROS/story.txt'}
     };
 
     constructor(
