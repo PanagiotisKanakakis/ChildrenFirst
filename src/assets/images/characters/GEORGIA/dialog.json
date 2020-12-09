@@ -1,0 +1,366 @@
+{
+  "rightChar": "/assets/images/characters/GEORGIA/parents_avatar.webp",
+  "leftChar": "/assets/images/characters/GEORGIA/georgia_avatar.webp",
+  "Background": "/assets/images/characters/GEORGIA/living_room_scenery.webp",
+  "payload": {
+    "D1": {
+      "state": 0,
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/georgia_DESCRIPTION.webp",
+      "leadsTo": ["S1"]
+    },
+    "S1": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_st1_con1.webp",
+      "leadsTo": ["S2"],
+      "avatar": "/assets/images/characters/GEORGIA/parents_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S2": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Both_con1.webp",
+      "leadsTo": ["S3"],
+      "avatar": "/assets/images/characters/GEORGIA/parents_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S3": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_st2_con1.webp",
+      "leadsTo": ["S4"],
+      "avatar": "/assets/images/characters/GEORGIA/georgia_avatar.webp",
+      "avatarPosition": 0,
+      "state": 1
+    },
+    "S4": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Mother_con1_st1.webp",
+      "leadsTo": ["S5"],
+      "avatar": "/assets/images/characters/GEORGIA/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S5": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_st3_con1.webp",
+      "leadsTo": ["S6"],
+      "avatar": "/assets/images/characters/GEORGIA/georgia_avatar.webp",
+      "avatarPosition": 0,
+      "state": 1
+    },
+    "S6": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Mother_con1_st2.webp",
+      "leadsTo": ["Q1"],
+      "avatar": "/assets/images/characters/GEORGIA/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S7": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Mother_con2_st1.webp",
+      "leadsTo": ["S8"],
+      "avatar": "/assets/images/characters/GEORGIA/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S8": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_st1_con2.webp",
+      "leadsTo": ["S9"],
+      "avatar": "/assets/images/characters/GEORGIA/georgia_avatar.webp",
+      "avatarPosition": 0,
+      "state": 1
+    },
+    "S9": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Father_con2_st1.webp",
+      "leadsTo": ["S10"],
+      "avatar": "/assets/images/characters/GEORGIA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S10": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_st2_con2.webp",
+      "leadsTo": ["S11"],
+      "avatar": "/assets/images/characters/GEORGIA/georgia_avatar.webp",
+      "avatarPosition": 0,
+      "state": 1
+    },
+    "S11": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Mother_con2_st2.webp",
+      "leadsTo": ["S12"],
+      "avatar": "/assets/images/characters/GEORGIA/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S12": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_st3_con2.webp",
+      "leadsTo": ["Q2"],
+      "avatar": "/assets/images/characters/GEORGIA/georgia_avatar.webp",
+      "avatarPosition": 0,
+      "state": 1
+    },
+    "S13": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Mother_con3_st1.webp",
+      "leadsTo": ["Q3"],
+      "avatar": "/assets/images/characters/GEORGIA/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S14": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Mother_con4_st1.webp",
+      "leadsTo": ["S15"],
+      "avatar": "/assets/images/characters/GEORGIA/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S15": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Father_con4_st1.webp",
+      "leadsTo": ["S16"],
+      "avatar": "/assets/images/characters/GEORGIA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+    "S16": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Mother_con4_st2.webp",
+      "leadsTo": ["Q4"],
+      "avatar": "/assets/images/characters/GEORGIA/mother_avatar.webp",
+      "avatarPosition": 1,
+      "state": 1
+    },
+
+    "Q1": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Father_con1_st1.webp",
+      "leadsTo": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q2": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Father_con2_st2.webp",
+      "leadsTo": [
+        "A4",
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q3": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Father_con3_st1.webp",
+      "leadsTo": [
+        "A8",
+        "A9",
+        "A10"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "Q4": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Father_con4_st2.webp",
+      "leadsTo": [
+        "A11",
+        "A12",
+        "A13"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/father_avatar.webp",
+      "avatarPosition": 1,
+      "state": 2
+    },
+    "A1": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q1_A1.webp",
+      "leadsTo": [
+        "S7"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A2": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q1_A2.webp",
+      "leadsTo": [
+        "S7"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A3": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q1_A3.webp",
+      "leadsTo": [
+        "S7"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A4": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q2_A1.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A5": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q2_A2.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A6": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q2_A3.webp",
+      "leadsTo": [
+        "S13"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A7": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q2_A4.webp",
+      "leadsTo": [
+        "S13"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A8": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q3_A1.webp",
+      "leadsTo": ["D2"],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A9": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q3_A2.webp",
+      "leadsTo": [
+        "S14"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A10": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q3_A3.webp",
+      "leadsTo": [
+        "S14"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "A11": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q4_A1.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 5,
+      "state": 3
+    },
+    "A12": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q4_A2.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 10,
+      "state": 3
+    },
+    "A13": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/Georgia_Q4_A3.webp",
+      "leadsTo": [
+        "D2"
+      ],
+      "avatar": "/assets/images/characters/GEORGIA/Georgia_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
+      "state": 3
+    },
+    "D2": {
+      "state": 0,
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/georgia_FINALSCREEN.webp",
+      "leadsTo": ["E1","E2","E3"]
+    },
+    "E1": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/georgia_ending1.webp",
+      "leadsTo": [
+        "FL1"
+      ],
+      "state": 4,
+      "avatar": "/assets/images/characters/GEORGIA/father_avatar.webp",
+      "avatarPosition": 1
+    },
+    "FL1": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/georgia_ending1_description.webp",
+      "leadsTo": [
+        "FS1"
+      ],
+      "state": 0
+    },
+    "E2": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/georgia_ending2.webp",
+      "leadsTo": [
+        "FL2"
+      ],
+      "state": 4,
+      "avatar": "/assets/images/characters/GEORGIA/mother_avatar.webp",
+      "avatarPosition": 1
+    },
+    "FL2": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/georgia_ending2_description.webp",
+      "leadsTo": [
+        "FS2"
+      ],
+      "state": 0
+    },
+    "E3": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/georgia_ending3.webp",
+      "leadsTo": [
+        "FL3"
+      ],
+      "state": 4,
+      "avatar": "/assets/images/characters/GEORGIA/parents_avatar.webp",
+      "avatarPosition": 1
+    },
+    "FL3": {
+      "path": "/assets/images/characters/GEORGIA/BUBBLES/georgia_ending3_description.webp",
+      "leadsTo": [
+        "FS3"
+      ],
+      "state": 0
+    },
+    "FS1": {
+      "state": 5,
+      "description": "You have been the victim of a very serious phenomenon, which constitutes a crime in several countries in the world. No one has the right to disseminate your personal and intimate pictures without your consent nor blackmail you, especially if you are a minor. ",
+      "feedback": "Revenge porn could have severe consequences on the victim's psychological and social life. The intervention of an adult may be crucial for reporting the perpetrator and ensure the victim’s wellbeing. However, Georgia’s parents seem not supportive at all on this, being more focused on the shame she brought upon the family. As a consequence, she retreated into himself and repressed all her feelings.\nWhen people you love don’t understand you on such important matters, all your efforts should be placed in communicating your feelings and thoughts, in a calm and constructive way. People may be victims of stereotypes and norms imposed on the ‘appropriate’ behaviour of men and women, which are still common in our societies. However, you should never reject who you are in order to make them feel better.\n"
+    },
+    "FS2": {
+      "state": 5,
+      "description": "Great effort! Good job in trying to openly express your feelings, which is the first point for making people understand what’s happening to you. And most importantly, you managed to replace your parents’ attention, from the discovery of your online exposure to the need of helping you to face the episode of revenge porn that you are experiencing. However, still much has to be done in terms of empowerment and communication, in order to have them supportive of your personal choices and protective with regards to what happened to you.\nIt is a hard trip and this takes time, but you are on your way for happiness!\n",
+      "feedback": "The act of sharing explicit or sexual images or videos without the consent of the person in the image (known as “revenge porn”) is an alarming phenomenon, which has nothing to do with one’s sexual orientation. In recent years, it is growing among people of all ages and sexual orientation, but especially among teenagers. Like many other youngsters, Georgia was not aware of the dangers of sending explicit images of her, nor was informed about the consequences of being a victim of revenge porn. \nHopefully, her efforts in asking for his parents help will allow her to work on this unlucky event, to be more aware of the internet’s risks, and most importantly in building a more communicative relationship with his parents.\nBe patient, never stop self-reflecting and chasing your happiness ;)\n"
+    },
+    "FS3": {
+      "state": 5,
+      "description": "Congratulations!\nIt seems that your choices have made Georgia happy. He is now aware of the risks of the internet, and most importantly this situation helped her to start building a better relationship with her parents and make them understand what gender based violence is and why victim blaming is not the appropriate way of dealing with such situations.\n",
+      "feedback": ""
+    }
+  }
+}

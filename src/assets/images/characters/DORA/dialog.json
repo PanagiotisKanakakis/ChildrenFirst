@@ -252,7 +252,7 @@
     "FL3": {
       "path": "/assets/images/characters/DORA/BUBBLES/dora_ending3_description.webp",
       "leadsTo": [
-        "FS2"
+        "FS3"
       ],
       "state": 0
     },
@@ -268,7 +268,7 @@
     },
     "FS3": {
       "state": 5,
-      "description": "Well done, you reached the higher level! Maria is very happy with the outcome of her encounters in the school setting. She believes that her classmates understood her needs and that her teachers realised the importance of preventing such behaviours between children and protecting them from bullying, harassment and violence.",
+      "description": "Well done, you reached the higher level! Dora is very happy with the outcome of her encounters in the school setting. She believes that her classmates understood her needs and that her teachers realised the importance of preventing such behaviours between children and protecting them from bullying, harassment and violence.",
       "feedback": ""
     }
   }

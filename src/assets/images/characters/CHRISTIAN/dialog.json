@@ -261,7 +261,7 @@
     "FL3": {
       "path": "/assets/images/characters/CHRISTIAN/BUBBLES/christian_description_ending3.webp",
       "leadsTo": [
-        "FS2"
+        "FS3"
       ],
       "state": 0
     },

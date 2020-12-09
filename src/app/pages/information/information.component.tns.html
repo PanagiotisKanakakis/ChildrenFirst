@@ -1,23 +1,28 @@
 <GridLayout class="page coverImage" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <GridLayout rows="*" columns="*,5*">
-        <GridLayout row="0" col="0">
-            <Image [src]="avatar" verticalAlignment="bottom"></Image>
-        </GridLayout>
-        <GridLayout row="0" col="1" orientation="vertical" id="info-content">
-            <GridLayout rows="*,3*,*" columns="*">
-                <GridLayout row="0" col="0">
-                    <Label class="gagalin-regular question" [text]=question textWrap="true"></Label>
+    <GridLayout rows="3*, *">
+        <GridLayout row="0" rows="*" class="m-t-20">
+            <GridLayout row="0" rows="auto" verticalAlignment="top" >
+                <Label class="gagalin-regular information-header" [text]=question textWrap="true"></Label>
+            </GridLayout>
+            <GridLayout row="1" columns="*,2*" class="information-bordered">
+                <GridLayout class="carousel-item-circle" col="0" row="0">
+                    <Image [src]=characterSrc class="carousel-item-icon"></Image>
                 </GridLayout>
-                <GridLayout row="1" col="0">
-                    <Label class="gagalin-regular answer" [text]=answer textWrap="true"></Label>
-                </GridLayout>
-                <GridLayout row="2" col="0">
-                    <Button id="button" class="-rounded-lg next-button gagalin-regular" verticalAlignment="bottom"
-                            horizontalAlignment="right"
-                            (tap)="onNextTap($event)" text="NEXT">
-                    </Button>
+                <GridLayout width="60%" col="1" row="0">
+                    <ScrollView orientation="vertical" ios.pagingEnabled="true" left="0" top="0" height="75%">
+                        <Label class="gagalin-regular information-description" [text]=answer textWrap="true"></Label>
+                    </ScrollView>
                 </GridLayout>
             </GridLayout>
         </GridLayout>
+        <GridLayout row="1">
+            <Button id="button" class="-rounded-lg information-next-button gagalin-regular"  verticalAlignment="bottom" horizontalAlignment="right"
+                    (tap)="onNextTap($event)" >
+                <FormattedString>
+                    <Span text="NEXT" class="gagalin-regular"></Span>
+                </FormattedString>
+            </Button>
+        </GridLayout>
     </GridLayout>
 </GridLayout>
+

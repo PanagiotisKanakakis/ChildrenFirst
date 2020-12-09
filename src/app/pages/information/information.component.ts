@@ -20,6 +20,7 @@ export class InformationComponent extends AppComponent implements OnInit {
     private payload = {};
     public avatar: string;
     public question: string;
+    public characterSrc: string;
     public answer: string;
     private counter:any = 0;
 

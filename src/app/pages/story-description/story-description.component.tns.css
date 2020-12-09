@@ -1,0 +1,26 @@
+/* Add mobile styles for the component here.  */
+.story-description-button{
+    background-color: lightgray;
+    opacity: 0.9;
+    font-style: italic;
+    border-radius: 50%;
+    text-align: center;
+    width: 20%;
+    margin-bottom: 10;
+    margin-right: 20;
+}
+
+.story-header{
+    color: black;
+    font-size: 36;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.story-bordered{
+    margin-top: 20%;
+}
+
+.story-description{
+    font-size: 15;
+}

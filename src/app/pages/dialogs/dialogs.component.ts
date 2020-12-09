@@ -104,7 +104,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
                     const imageSource = encodeURI(path.join(`${knownFolders.currentApp().path}` + src['path']));
                     this.images.push({state: src['state'], x: src['x'], y: src['y'], score: src['score'], src: imageSource, 'id': target});
                     this.updateAvatar(src);
-                }else if(target === 'E3' && this.score >=31 && this.score <= 45){
+                }else if(target === 'E3' && this.score >=31){
                     const imageSource = encodeURI(path.join(`${knownFolders.currentApp().path}` + src['path']));
                     this.images.push({state: src['state'], x: src['x'], y: src['y'], score: src['score'], src: imageSource, 'id': target});
                     this.updateAvatar(src);

@@ -1,0 +1,28 @@
+<GridLayout class="page coverImage" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <GridLayout rows="3*, *">
+        <GridLayout row="0" rows="*" class="m-t-20">
+            <GridLayout row="0" rows="auto" verticalAlignment="top" >
+                <Label class="gagalin-regular story-header" text="STORY DESCRIPTION" textWrap="true"></Label>
+            </GridLayout>
+            <GridLayout row="1" columns="*,2*" class="story-bordered">
+                <GridLayout class="carousel-item-circle" col="0" row="0">
+                    <Image [src]=characterSrc class="carousel-item-icon"></Image>
+                </GridLayout>
+                <GridLayout width="60%" col="1" row="0">
+                    <ScrollView orientation="vertical" ios.pagingEnabled="true" left="0" top="0" height="75%">
+                        <Label class="gagalin-regular story-description" [text]=storyDescription textWrap="true"></Label>
+                    </ScrollView>
+                </GridLayout>
+            </GridLayout>
+        </GridLayout>
+        <GridLayout row="1">
+            <Button id="button" class="-rounded-lg story-description-button gagalin-regular"  verticalAlignment="bottom" horizontalAlignment="right"
+                    (tap)="onContinueTap($event)" >
+                <FormattedString>
+                    <Span text="CONTINUE " class="gagalin-regular"></Span>
+                    <Span class="fas" text="&#xf061;"></Span>
+                </FormattedString>
+            </Button>
+        </GridLayout>
+    </GridLayout>
+</GridLayout>
