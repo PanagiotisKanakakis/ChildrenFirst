@@ -2,7 +2,7 @@
 .story-description-button{
     background-color: lightgray;
     opacity: 0.9;
-    font-style: italic;
+    /*font-style: italic;*/
     border-radius: 50%;
     text-align: center;
     width: 20%;

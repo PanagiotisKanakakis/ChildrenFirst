@@ -1,31 +1,34 @@
 <GridLayout class="page coverImage" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <GridLayout rows="*" columns="*,5*">
-        <GridLayout row="0" col="0">
-            <Label class="gagalin-regular score" [text]=score textWrap="true"></Label>
-            <Image [src]="characterSrc" verticalAlignment="bottom"></Image>
-        </GridLayout>
-        <GridLayout row="0" col="1" orientation="vertical" id="info-content">
-            <GridLayout rows="*,3*,*" columns="*">
-                <GridLayout row="0" col="0">
-                    <Label class="gagalin-regular title" text="Feedback"></Label>
+    <GridLayout rows="3*, *">
+        <GridLayout row="0" rows="*" class="m-t-20">
+            <GridLayout row="0" rows="auto" verticalAlignment="top" >
+                <Label class="gagalin-regular feedback-header" text="SUMMARY" textWrap="true"></Label>
+            </GridLayout>
+            <GridLayout row="1" columns="*,2*" class="feedback-bordered" backgroundColor="lightgray">
+                <GridLayout class="carousel-item-circle" col="0" row="0">
+                    <Image [src]="characterSrc" class="carousel-item-icon"></Image>
                 </GridLayout>
-                <GridLayout row="1" col="0">
-                    <Label class="gagalin-regular comment" [text]=comment textWrap="true"></Label>
-                </GridLayout>
-                <GridLayout row="2" col="0">
-                    <Button id="playAgainButton" class="-rounded-lg play-again-button gagalin-regular" verticalAlignment="bottom"
-                            horizontalAlignment="right" (tap)="onPlayAgainTap($event)" >
-                            <FormattedString>
-                                <Span text="THANKS FOR PLAYING! CHOOSE ANOTHER CHARACTER   " class="gagalin-regular"></Span>
-                                <Span class="fas" text="&#xf061;"></Span>
-                            </FormattedString>
-                    </Button>
-                    <Button id="nextButton" class="-rounded-lg next-button gagalin-regular" verticalAlignment="bottom"
-                            horizontalAlignment="right"
-                            (tap)="onNextTap($event)" text="NEXT">
-                    </Button>
+                <GridLayout width="60%" col="1" row="0">
+                    <ScrollView orientation="vertical" ios.pagingEnabled="true" left="0" top="0" height="75%">
+                        <Label class="gagalin-regular comment" [text]=text textWrap="true"></Label>
+                    </ScrollView>
                 </GridLayout>
             </GridLayout>
         </GridLayout>
+        <GridLayout row="1">
+            <Button id="playAgainButton" class="-rounded-lg play-again-button gagalin-regular" verticalAlignment="bottom"
+                    horizontalAlignment="right" (tap)="onPlayAgainTap($event)" >
+                <FormattedString>
+                    <Span text="THANKS FOR PLAYING! CHOOSE ANOTHER CHARACTER   " class="gagalin-regular"></Span>
+                    <Span class="fas" text="&#xf061;"></Span>
+                </FormattedString>
+            </Button>
+            <Button id="nextButton" class="-rounded-lg next-button gagalin-regular" verticalAlignment="bottom"
+                    horizontalAlignment="right"
+                    (tap)="onNextTap($event)" text="NEXT">
+            </Button>
+        </GridLayout>
     </GridLayout>
 </GridLayout>
+
+

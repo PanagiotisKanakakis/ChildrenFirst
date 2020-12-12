@@ -1,31 +1,23 @@
 /* Add mobile styles for the component here.  */
-
-.score {
+.feedback-header{
     color: black;
     font-size: 36;
-    margin-top: 20px;
     text-align: center;
+    margin-top: 20px;
 }
 
-
-.title {
-    margin-top: 30px;
-    margin-bottom: 40px;
-    color: black;
-    text-decoration: underline;
-    font-style: italic;
-    font-size: 36;
-    text-align: center;
+.feedback-bordered{
+    margin-top: 20%;
 }
 
 .comment{
-    margin-right: 10px;
-    margin-left: 30px;
-    font-size: 20;
+    margin-right: 10;
+    margin-left: 30;
+    font-size: 15;
 }
 
 .play-again-button{
-    font-style: italic;
+    /*font-style: italic;*/
     border-radius: 50%;
     font-size: 15;
     text-align: center;

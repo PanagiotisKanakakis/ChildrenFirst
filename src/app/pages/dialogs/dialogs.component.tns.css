@@ -3,9 +3,15 @@
 .next-dialog-button{
     background-color: lightgray;
     opacity: 0.9;
-    font-style: italic;
+    /*font-style: italic;*/
     border-radius: 50%;
     text-align: center;
     margin-bottom: 10;
     margin-right: 20;
+}
+
+.dialog-score{
+    color: #999999;
+    font-size: 30;
+    margin-top: 30;
 }

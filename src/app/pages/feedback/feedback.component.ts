@@ -16,7 +16,7 @@ export class FeedbackComponent extends AppComponent implements OnInit, AfterCont
     public feedback: string;
     public description: string;
     public score: string;
-    public comment: string;
+    public text: string;
     private REDIRECT_ROUTE = ['/characters'];
 
     constructor(public page: Page,
@@ -43,7 +43,7 @@ export class FeedbackComponent extends AppComponent implements OnInit, AfterCont
     }
 
     onNextTap(args: GestureEventData) {
-        this.comment = this.feedback;
+        this.text = this.feedback;
         let button = this.page.getViewById('nextButton');
         button.set('visibility', 'collapse');
         button = this.page.getViewById('playAgainButton');
@@ -51,12 +51,18 @@ export class FeedbackComponent extends AppComponent implements OnInit, AfterCont
     }
 
     private addDescription() {
-        if (this.feedback.localeCompare("") != 0) {
-            this.comment = this.description;
-            const button = this.page.getViewById('playAgainButton');
-            button.set('visibility', 'collapse');
-        } else {
-            this.comment = this.feedback;
+
+        if(this.description.localeCompare("") != 0){
+            this.text = this.description;
+            if(this.feedback.localeCompare("") == 0){
+                const button = this.page.getViewById('nextButton');
+                button.set('visibility', 'collapse');
+            }else{
+                const button = this.page.getViewById('playAgainButton');
+                button.set('visibility', 'collapse');
+            }
+        }else{
+            this.text = this.feedback;
             const button = this.page.getViewById('nextButton');
             button.set('visibility', 'collapse');
         }

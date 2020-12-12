@@ -1,20 +1,23 @@
-<GridLayout rows="*" columns="*, 4*, *" >
-    <GridLayout row="0" col="0" >
-        <Image  [src]="leftChar" verticalAlignment="bottom" ></Image>
+<GridLayout rows="*" columns="*, 4*, *">
+    <GridLayout row="0" col="0">
+        <Image  [src]="leftChar" horizontalAlignment="center" verticalAlignment="bottom" ></Image>
+        <Label [text]="scoreText"   class="dialog-score gagalin-regular" horizontalAlignment="center" verticalAlignment="top"></Label>
     </GridLayout>
-    <ScrollView row="0" col="1" orientation="vertical" ios.pagingEnabled="true" left="0" top="0" width="100%" height="75%">
+    <ScrollView row="0" col="1" orientation="vertical" ios.pagingEnabled="true" left="0" top="0" width="100%"
+                height="75%">
         <StackLayout orientation="vertical" #dialogsContent id="dialogs-content">
-                <Image *ngFor="let image of images" [id]="image.id" [src]="image.src" [score]="image.score" [state]="image.state"
-                       (tap)="onImageTap($event,image.id)"></Image>
+            <Image *ngFor="let image of images" [id]="image.id" [src]="image.src" [score]="image.score"
+                   [state]="image.state"
+                   (tap)="onImageTap($event,image.id)"></Image>
         </StackLayout>
     </ScrollView>
-    <GridLayout row="0" col="2" >
-        <Image [src]="rightChar"   verticalAlignment="top"></Image>
-        <Button id="button" class="-rounded-lg next-dialog-button"  verticalAlignment="bottom"
-                (tap)="onContinueTap($event)" >
+    <GridLayout row="0" col="2">
+        <Image [src]="rightChar" verticalAlignment="top" horizontalAlignment="center"></Image>
+        <Button id="button" class="-rounded-lg next-dialog-button" verticalAlignment="bottom"
+                (tap)="onContinueTap($event)">
             <FormattedString>
                 <Span text="CONTINUE " class="gagalin-regular"></Span>
-                <Span class="fas" text="&#xf061;"></Span>
+                <Span class="fas" text="&#xf061;" ></Span>
             </FormattedString>
         </Button>
     </GridLayout>

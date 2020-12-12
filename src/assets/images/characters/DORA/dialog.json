@@ -71,7 +71,8 @@
       "leadsTo": [
         "A4",
         "A5",
-        "A6"
+        "A6",
+        "A7"
       ],
       "avatar": "/assets/images/characters/DORA/teacher_avatar.webp",
       "avatarPosition": 1,
@@ -141,7 +142,7 @@
     "A5": {
       "path": "/assets/images/characters/DORA/BUBBLES/dora_Q2_A2.webp",
       "leadsTo": [
-        "S6"
+        "D2"
       ],
       "avatar": "/assets/images/characters/DORA/dora_avatar.webp",
       "avatarPosition": 0,
@@ -156,6 +157,16 @@
       "avatar": "/assets/images/characters/DORA/dora_avatar.webp",
       "avatarPosition": 0,
       "score": 10,
+      "state": 3
+    },
+    "A7": {
+      "path": "/assets/images/characters/DORA/BUBBLES/dora_Q2_A4.webp",
+      "leadsTo": [
+        "Q3"
+      ],
+      "avatar": "/assets/images/characters/DORA/dora_avatar.webp",
+      "avatarPosition": 0,
+      "score": 15,
       "state": 3
     },
     "A8": {

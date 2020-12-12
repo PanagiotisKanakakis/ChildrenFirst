@@ -1,11 +1,12 @@
 import {AfterContentInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AppComponent} from '@src/app/app.component';
-import {GestureEventData, Page, StackLayout} from '@nativescript/core';
+import {Enums, GestureEventData, Page, StackLayout} from '@nativescript/core';
 import {ActivatedRoute} from '@angular/router';
 import {RouterExtensions} from '@nativescript/angular';
 import {File, knownFolders, path} from 'tns-core-modules/file-system';
 import {ImagePayload} from '@src/app/pages/dialogs/imagePayload';
 import {Data} from '@src/app/domain/Data';
+import integer = Enums.KeyboardType.integer;
 
 enum State {
     OnDescription,
@@ -30,6 +31,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
 
     public rightChar: string;
     public leftChar: string;
+    public scoreText: string;
     private currentQuestion;
     private score: number;
     private background: string;
@@ -40,6 +42,10 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     private state: State;
     private payload = {};
     private FEEDBACK_ROUTE = '/feedback';
+
+    size = [this.random(), this.random(), this.random()];
+    progress = [this.random(0, 100), this.random(0, 100), this.random(0, 100)];
+
 
     constructor(public page: Page,
                 public router: RouterExtensions,
@@ -56,6 +62,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
             this.leftChar = encodeURI(`${knownFolders.currentApp().path}` + JSON.parse(text).leftChar);
         });
         this.score = 0;
+        this.scoreText = "0%";
     }
 
     ngOnInit(): void {
@@ -76,6 +83,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     onImageTap(args: GestureEventData, payloadId: string) {
         if (this.state == State.OnQuestion) {
             this.score += this.payload[payloadId].score;
+            this.scoreText = Math.floor((this.score/45)*100) + "%";
             this.updateDialog(payloadId);
             this.changeContinueButtonVisibility();
         }
@@ -146,5 +154,9 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
             this.data.storage = {"avatar": this.leftChar,"score":this.score,"description":source['description'],"feedback":source['feedback']};
             this.router.navigate([this.FEEDBACK_ROUTE]);
         }
+    }
+
+    random(min = 50, max = 150) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 }
