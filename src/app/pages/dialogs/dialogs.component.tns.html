@@ -1,25 +1,27 @@
 <GridLayout rows="*" columns="*, 4*, *">
     <GridLayout row="0" col="0">
-        <Image  [src]="leftChar" horizontalAlignment="center" verticalAlignment="bottom" ></Image>
-        <Label [text]="scoreText"   class="dialog-score gagalin-regular" horizontalAlignment="center" verticalAlignment="top"></Label>
+        <Image id="left" [src]="leftChar" horizontalAlignment="center" verticalAlignment="bottom"></Image>
+        <Label [text]="scoreText" class="dialog-score gagalin-regular" horizontalAlignment="center"
+               verticalAlignment="top"></Label>
     </GridLayout>
     <ScrollView row="0" col="1" orientation="vertical" ios.pagingEnabled="true" left="0" top="0" width="100%"
                 height="75%">
-        <StackLayout orientation="vertical" #dialogsContent id="dialogs-content">
-            <Image *ngFor="let image of images" [id]="image.id" [src]="image.src" [score]="image.score"
-                   [state]="image.state"
-                   (tap)="onImageTap($event,image.id)"></Image>
+        <StackLayout #dialogsContent id="dialogs-content">
+            <TextView id="labels" editable="false" [ngClass]="(bubble == true)?'gagalin-regular speechbubble':'gagalin-regular description'" width="auto" height="auto"
+                      *ngFor="let label of labels" @fadeIn [id]="label.id" [text]="label.text" [score]="label.score"
+                      [state]="label.state"
+                      (tap)="onImageTap($event,label.id)"></TextView>
         </StackLayout>
     </ScrollView>
-    <GridLayout row="0" col="2">
-        <Image [src]="rightChar" verticalAlignment="top" horizontalAlignment="center"></Image>
-        <Button id="button" class="-rounded-lg next-dialog-button" verticalAlignment="bottom"
-                (tap)="onContinueTap($event)">
-            <FormattedString>
-                <Span text="CONTINUE " class="gagalin-regular"></Span>
-                <Span class="fas" text="&#xf061;" ></Span>
-            </FormattedString>
-        </Button>
+    <GridLayout row="0" col="2" rows="*,*">
+        <GridLayout row="0" verticalAlignment="top" horizontalAlignment="center">
+            <Image id="right" [src]="rightChar" ></Image>
+        </GridLayout>
+
+        <GridLayout row="1" verticalAlignment="bottom" horizontalAlignment="center" style="margin-bottom: 10">
+            <Label class="gagalin-regular" text="CONTINUE" verticalAlignment="center"  horizontalAlignment="center" style="margin-right: 50"></Label>
+            <Image [src]="next" (tap)="onContinueTap($event)" verticalAlignment="center"  horizontalAlignment="right" style="margin-right: 10" stretch="none"></Image>
+        </GridLayout>
     </GridLayout>
 </GridLayout>
 

@@ -8,7 +8,7 @@
 android {  
   defaultConfig {  
     generatedDensities = []
-    applicationId = "org.nativescript.childrenfirst"
+    applicationId = "org.nativescript.childrensfirstcrossplatform"
     
     //override supported platforms
     // ndk {

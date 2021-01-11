@@ -26,7 +26,7 @@ export const routes: Routes = [
         component: CharacterSelectionComponent,
     },
     {
-        path:'dialogs/:id',
+        path:'dialogs',
         component: DialogsComponent
     },
     {

@@ -1,8 +1,8 @@
 <GridLayout class="page coverImage" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <GridLayout rows="3*, *">
+    <GridLayout rows="5*, *">
         <GridLayout row="0" rows="*" class="m-t-20">
             <GridLayout row="0" rows="auto" verticalAlignment="top" >
-                <Label class="gagalin-regular information-header" [text]=question textWrap="true"></Label>
+                <Label class="gagalin-regular information-header" [text]=title textWrap="true"></Label>
             </GridLayout>
             <GridLayout row="1" columns="*,2*" class="information-bordered">
                 <GridLayout class="carousel-item-circle" col="0" row="0">
@@ -10,18 +10,20 @@
                 </GridLayout>
                 <GridLayout width="60%" col="1" row="0">
                     <ScrollView orientation="vertical" ios.pagingEnabled="true" left="0" top="0" height="75%">
-                        <Label class="gagalin-regular information-description" [text]=answer textWrap="true"></Label>
+                        <Label class="gagalin-regular information-description" [text]=description textWrap="true"></Label>
                     </ScrollView>
                 </GridLayout>
             </GridLayout>
         </GridLayout>
-        <GridLayout row="1">
-            <Button id="button" class="-rounded-lg information-next-button gagalin-regular"  verticalAlignment="bottom" horizontalAlignment="right"
-                    (tap)="onNextTap($event)" >
-                <FormattedString>
-                    <Span text="NEXT" class="gagalin-regular"></Span>
-                </FormattedString>
-            </Button>
+        <GridLayout row="1" columns="*,*" verticalAlignment="bottom">
+            <GridLayout #bc col="0" horizontalAlignment="left" style="opacity:0 ;margin-bottom: 10">
+                <Label class="gagalin-regular" text="BACK" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-left: 50"></Label>
+                <Image  [src]="back" (tap)="onBackTap($event)"  verticalAlignment="bottom"  horizontalAlignment="left" stretch="none" style="margin-left: 10"></Image>
+            </GridLayout>
+            <GridLayout col="1"  horizontalAlignment="right" style="margin-bottom: 10">
+                <Label class="gagalin-regular" text="NEXT" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-right: 50"></Label>
+                <Image [src]="next" (tap)="onNextTap($event)"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="none" style="margin-right: 10"></Image>
+            </GridLayout>
         </GridLayout>
     </GridLayout>
 </GridLayout>

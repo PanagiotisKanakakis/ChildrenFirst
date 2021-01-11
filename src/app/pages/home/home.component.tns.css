@@ -1,11 +1,26 @@
-.continue-button {
-    background-color: mediumpurple;
-    color: yellowgreen;
-    /*font-style: italic;*/
-    border-radius: 50%;
-    font-size: 25;
-    text-align: center;
-    width: 20%;
+.logo{
+    margin-top: 20;
+}
+
+.bottom-row{
     margin-bottom: 10;
-    margin-right: 20;
+}
+
+.start{
+    font-size: 25;
+}
+
+
+.fab-button {
+    height: 50;
+    width: 70;
+    /*margin: 15;*/
+    background-color: orangered;
+}
+
+.language {
+    background-color: white;
+    opacity: 0;
+    height: 50;
+    width: 170;
 }

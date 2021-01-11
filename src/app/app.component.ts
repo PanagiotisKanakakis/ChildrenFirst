@@ -1,12 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Page} from '@nativescript/core';
-import {Router} from '@angular/router';
-import * as orientation from 'nativescript-orientation';
 import {android as androidApp} from 'tns-core-modules/application';
 import {Device as device} from 'tns-core-modules/platform';
 import {RouterExtensions} from '@nativescript/angular';
 
 declare var android: any;
+
 
 @Component({
     selector: 'app-root',

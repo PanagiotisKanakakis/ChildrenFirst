@@ -4,6 +4,7 @@ import {RouterExtensions} from '@nativescript/angular';
 import {ActivatedRoute, NavigationExtras} from '@angular/router';
 import {AppComponent} from '@src/app/app.component';
 import {Data} from '@src/app/domain/Data';
+import {knownFolders} from 'tns-core-modules/file-system';
 
 @Component({
     selector: 'app-feedback',
@@ -17,6 +18,7 @@ export class FeedbackComponent extends AppComponent implements OnInit, AfterCont
     public description: string;
     public score: string;
     public text: string;
+    public next: string;
     private REDIRECT_ROUTE = ['/characters'];
 
     constructor(public page: Page,
@@ -31,10 +33,11 @@ export class FeedbackComponent extends AppComponent implements OnInit, AfterCont
     }
 
     ngAfterContentInit() {
-        this.characterSrc = this.data.storage.avatar;
+        this.characterSrc = this.data.storage.characterSrc;
         this.score = 'YOUR SCORE: ' + this.data.storage.score;
         this.description = this.data.storage.description;
         this.feedback = this.data.storage.feedback;
+        this.next = encodeURI(`${knownFolders.currentApp().path}/assets/images/continue.png`);
         this.addDescription();
     }
 

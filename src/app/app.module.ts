@@ -10,16 +10,6 @@ import {FeedbackComponent} from '@src/app/pages/feedback/feedback.component';
 import {Data} from '@src/app/domain/Data';
 import {InformationComponent} from '@src/app/pages/information/information.component';
 import {StoryDescriptionComponent} from '@src/app/pages/story-description/story-description.component';
-import {CircularProgressBarComponent} from '@src/app/pages/circular-progress-bar/circular-progress-bar.component';
-import {NativeScriptUISideDrawerModule} from 'nativescript-ui-sidedrawer/angular';
-import {NativeScriptUIListViewModule} from 'nativescript-ui-listview/angular';
-import {NativeScriptUICalendarModule} from 'nativescript-ui-calendar/angular';
-import {NativeScriptUIChartModule} from 'nativescript-ui-chart/angular';
-import {NativeScriptUIDataFormModule} from 'nativescript-ui-dataform/angular';
-import {NativeScriptUIAutoCompleteTextViewModule} from 'nativescript-ui-autocomplete/angular';
-import {NativeScriptUIGaugeModule} from 'nativescript-ui-gauge/angular';
-import {NativeScriptCommonModule, NativeScriptHttpClientModule, NativeScriptModule} from '@nativescript/angular';
-
 
 @NgModule({
     declarations: [
@@ -29,22 +19,11 @@ import {NativeScriptCommonModule, NativeScriptHttpClientModule, NativeScriptModu
         DialogsComponent,
         FeedbackComponent,
         InformationComponent,
-        StoryDescriptionComponent,
-        CircularProgressBarComponent
+        StoryDescriptionComponent
     ],
     imports: [
         BrowserModule,
-        NativeScriptUISideDrawerModule,
-        NativeScriptUIListViewModule,
-        NativeScriptUICalendarModule,
-        NativeScriptUIChartModule,
-        NativeScriptUIDataFormModule,
-        NativeScriptUIAutoCompleteTextViewModule,
-        NativeScriptUIGaugeModule,
-        NativeScriptCommonModule,
-        NativeScriptModule,
         AppRoutingModule,
-        NativeScriptHttpClientModule
     ],
     providers: [Data],
     bootstrap: [AppComponent]

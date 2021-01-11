@@ -1,5 +1,5 @@
 <GridLayout class="page coverImage" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
-    <GridLayout rows="3*, *">
+    <GridLayout rows="5*, *">
         <GridLayout row="0" rows="*" class="m-t-20">
             <GridLayout row="0" rows="auto" verticalAlignment="top" >
                 <Label class="gagalin-regular story-header" text="STORY DESCRIPTION" textWrap="true"></Label>
@@ -15,14 +15,15 @@
                 </GridLayout>
             </GridLayout>
         </GridLayout>
-        <GridLayout row="1">
-            <Button id="button" class="-rounded-lg story-description-button gagalin-regular"  verticalAlignment="bottom" horizontalAlignment="right"
-                    (tap)="onContinueTap($event)" >
-                <FormattedString>
-                    <Span text="CONTINUE " class="gagalin-regular"></Span>
-                    <Span class="fas" text="&#xf061;"></Span>
-                </FormattedString>
-            </Button>
+        <GridLayout row="1" columns="*,*" verticalAlignment="bottom">
+            <GridLayout #bc col="0" horizontalAlignment="left" style="margin-bottom: 10">
+                <Label class="gagalin-regular" text="BACK" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-left: 50"></Label>
+                <Image  [src]="back" (tap)="onBackTap($event)"  verticalAlignment="bottom"  horizontalAlignment="left" stretch="none" style="margin-left: 10"></Image>
+            </GridLayout>
+            <GridLayout col="1"  horizontalAlignment="right" style="margin-bottom: 10">
+                <Label class="gagalin-regular" text="CONTINUE" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-right: 50"></Label>
+                <Image [src]="next" (tap)="onContinueTap($event)"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="none" style="margin-right: 10"></Image>
+            </GridLayout>
         </GridLayout>
     </GridLayout>
 </GridLayout>

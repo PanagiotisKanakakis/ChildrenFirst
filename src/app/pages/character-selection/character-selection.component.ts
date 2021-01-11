@@ -9,6 +9,7 @@ import {RouterExtensions} from '@nativescript/angular';
 import {Data} from '@src/app/domain/Data';
 
 const xml2js = require('xml2js');
+var sqlite = require('nativescript-sqlite');
 
 
 @Component({
@@ -22,33 +23,13 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
     private slideCount = 16;
     private screenWidth;
     private slidesView: GridLayout;
-
+    private languageCode;
     @ViewChild('slideContent')
     slideElement: ElementRef;
 
     private slideView: ContentView;
     private REDIRECT_ROUTE = '/story-description';
-
-    private idToName = {};
-
-    private nameToImagePath = {
-        'Mimi': {'avatar':'/assets/images/characters/MIMI/mimi_avatar.webp','story':'/assets/images/characters/MIMI/story.json'},
-        'Lisa': {'avatar':'/assets/images/characters/LISA/lisa_avatar.webp','story':'/assets/images/characters/LISA/story.json'},
-        'Selina': {'avatar':'/assets/images/characters/SELINA/selina_avatar.webp','story':'/assets/images/characters/SELINA/story.json'},
-        'Anna': {'avatar': '/assets/images/characters/ANNA/anna_avatar.webp', 'story': '/assets/images/characters/ANNA/story.json'},
-        'Christian': {'avatar':'/assets/images/characters/CHRISTIAN/christian_avatar.webp','story':'/assets/images/characters/CHRISTIAN/story.json'},
-        'Luca': {'avatar':'/assets/images/characters/LUCA/luca_avatar.webp','story':'/assets/images/characters/LUCA/story.json'},
-        'Georgia': {'avatar':'/assets/images/characters/GEORGIA/georgia_avatar.webp','story':'/assets/images/characters/GEORGIA/story.json'},
-        'Iman': {'avatar':'/assets/images/characters/IMAN/iman_avatar.webp','story':'/assets/images/characters/IMAN/story.json'},
-        'Maria': {'avatar':'/assets/images/characters/MARIA/maria_avatar.webp','story':'/assets/images/characters/MARIA/story.json'},
-        'Amelia': {'avatar':'/assets/images/characters/AMELIA/amelia_avatar.webp','story':'/assets/images/characters/AMELIA/story.json'},
-        'Eva': {'avatar':'/assets/images/characters/EVA/eva_avatar.webp','story':'/assets/images/characters/EVA/story.json'},
-        'Isabella': {'avatar':'/assets/images/characters/ISABELLA/isabella_avatar.webp','story':'/assets/images/characters/ISABELLA/story.json'},
-        'Christina': {'avatar':'/assets/images/characters/CHRISTINA/christina_avatar.webp','story':'/assets/images/characters/CHRISTINA/story.json'},
-        'Dora': {'avatar':'/assets/images/characters/DORA/dora_avatar.webp','story':'/assets/images/characters/DORA/story.json'},
-        'Peter': {'avatar':'/assets/images/characters/PETER/peter_avatar.webp','story':'/assets/images/characters/PETER/story.json'},
-        'Spyros': {'avatar':'/assets/images/characters/SPYROS/spyros_avatar.webp','story':'/assets/images/characters/SPYROS/story.json'}
-    };
+    private characters: Array<any>;
 
     constructor(
         public page: Page,
@@ -57,6 +38,26 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
     ) {
         super(page, router);
         this.screenWidth = Screen.mainScreen.widthDIPs;
+        this.languageCode = this.data.storage.language;
+        var character_column = 'CHARACTER_DESC_' + this.languageCode;
+        var story_column = 'STORY_DESC_' + this.languageCode;
+        new sqlite(encodeURI(path.join(`${knownFolders.currentApp().path}/assets/chf.db`))).then(db => {
+            db.resultType(sqlite.RESULTSASOBJECT);
+            db.all('SELECT * FROM stories').then(rows => {
+                this.characters = [];
+                for (var row in rows) {
+                    this.characters.push({
+                        'avatar': rows[row]['LC'],
+                        'characterDESC': rows[row][character_column],
+                        'storyDESC': rows[row][story_column],
+                        'storyID': rows[row]['STORY_ID'],
+                        'name': rows[row]['CHNAME']
+                    });
+                }
+            });
+        }, error => {
+            console.log('Failed to connect to db!');
+        });
     }
 
 
@@ -67,21 +68,20 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
             var row = new ItemSpec(1, GridUnitType.STAR);
             let gridLayout = new GridLayout();
             let i = 0;
-            for (let playerName in this.nameToImagePath) {
-                const slidePath = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/slides/slide.html`));
-                const storyPath = path.join(encodeURI(`${knownFolders.currentApp().path}` + this.nameToImagePath[playerName]['story']));
-                var res = File.fromPath(slidePath).readTextSync(() => {
+            const slidePath = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/slides/slide.html`));
+
+            for (let counter in this.characters) {
+                let res = File.fromPath(slidePath).readTextSync(() => {
                 });
-                var story = File.fromPath(storyPath).readTextSync(() => {
-                });
+                let characterDESC = this.characters[counter]['characterDESC'];
+
                 xml2js.parseString(res, {mergeAttrs: true}, (err, result) => {
                     if (err) {
                         throw err;
                     }
-                    this.idToName[i] = playerName;
-                    res = res.replace('chrname', playerName);
-                    res = res.replace('character-description', JSON.parse(story).characterDescription);
-                    var imagePath = encodeURI(path.join(`${knownFolders.currentApp().path}` + this.nameToImagePath[playerName]['avatar']));
+                    res = res.replace('chrname', this.characters[counter]['name']);
+                    res = res.replace('character-description', characterDESC);
+                    var imagePath = encodeURI(path.join(`${knownFolders.currentApp().path}` + this.characters[counter]['avatar']));
                     res = res.replace('characterSrc', imagePath);
                     var element = Builder.parse(res);
                     GridLayout.setColumn(element, 0);
@@ -142,14 +142,12 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
     }
 
     onTap(args: GestureEventData) {
-        var name = this.idToName[this.currentSlideNum];
-        var filePath = path.join(encodeURI(`${knownFolders.currentApp().path}` + this.nameToImagePath[name]['story']));
-        var story = File.fromPath(filePath).readTextSync(() => {
-        });
         this.data.storage = {
-            'name': this.idToName[this.currentSlideNum],
-            'characterSrc': encodeURI(path.join(`${knownFolders.currentApp().path}` + this.nameToImagePath[name]['avatar'])),
-            'storyDescription': JSON.parse(story).storyDescription
+            'name': this.characters[this.currentSlideNum]['name'],
+            'characterSrc': encodeURI(path.join(`${knownFolders.currentApp().path}` + this.characters[this.currentSlideNum]['avatar'])),
+            'storyDescription': this.characters[this.currentSlideNum]['storyDESC'],
+            'storyID': this.characters[this.currentSlideNum]['storyID'],
+            'language': this.languageCode
         };
         this.router.navigate([this.REDIRECT_ROUTE], {replaceUrl: true});
     }

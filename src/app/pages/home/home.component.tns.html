@@ -1,10 +1,53 @@
 <GridLayout class="page" xmlns="http://schemas.nativescript.org/tns.xsd"
-      navigatingTo="navigatingTo" >
-    <GridLayout rows="*" columns="*" class="background" [backgroundImage]="logoSrc">
-        <GridLayout row="0" col="0"  >
-            <Button  class="-rounded-lg continue-button gagalin-regular" horizontalAlignment="right" verticalAlignment="bottom"
-                     (tap)="onTap($event)" text="START">
-            </Button>
+            navigatingTo="navigatingTo">
+    <GridLayout #bg rows="3*,*" columns="*">
+        <GridLayout row="0" col="0" class="logo" horizontalAlignment="center" verticalAlignment="center">
+            <Image [src]="logoSrc" ></Image>
+        </GridLayout>
+        <GridLayout row="1" rows="*" columns="*,*,*" class="bottom-row">
+            <GridLayout row="0" col="0" horizontalAlignment="left" verticalAlignment="bottom" style="margin-left: 5">
+                <Image [src]="euLogo"></Image>
+            </GridLayout>
+            <GridLayout row="0" col="1" horizontalAlignment="center" verticalAlignment="bottom">
+                <Image [src]="imageButton" (tap)="onTap($event)" ></Image>
+                <Label class="gagalin-regular start" text="START" verticalAlignment="center"  horizontalAlignment="center"></Label>
+            </GridLayout>
+            <GridLayout row="0" col="2"  horizontalAlignment="right" verticalAlignment="bottom" style="margin-right: 5;">
+                <MDFloatingActionButton (tap)="fabTap($event)" class="fab-button fab"
+                                        src="res://gear" ></MDFloatingActionButton>
+            </GridLayout>
+        </GridLayout>
+    </GridLayout>
+    <GridLayout #lt class="language" rows="*" columns="*,*" (tap)="tap($event,4)" horizontalAlignment="right" verticalAlignment="bottom">
+        <GridLayout row="0" col="0" horizontalAlignment="left" verticalAlignment="center">
+            <Image src="res://lithuania" stretch="none"></Image>
+        </GridLayout>
+        <GridLayout row="0" col="1" horizontalAlignment="center" verticalAlignment="center">
+            <Label class="gagalin-regular" text="Lietuvių "></Label>
+        </GridLayout>
+    </GridLayout>
+    <GridLayout #en class="language" rows="*" columns="*,*" (tap)="tap($event,1)" horizontalAlignment="right" verticalAlignment="bottom">
+        <GridLayout row="0" col="0" horizontalAlignment="left" verticalAlignment="center">
+            <Image src="res://britain" stretch="none"></Image>
+        </GridLayout>
+        <GridLayout row="0" col="1"  horizontalAlignment="center" verticalAlignment="center">
+            <Label class="gagalin-regular" text="English"></Label>
+        </GridLayout>
+    </GridLayout>
+    <GridLayout #gr class="language" rows="*" columns="*,*" (tap)="tap($event,2)" horizontalAlignment="right" verticalAlignment="bottom">
+        <GridLayout row="0" col="0" horizontalAlignment="left" verticalAlignment="center">
+            <Image src="res://greece" stretch="none"></Image>
+        </GridLayout>
+        <GridLayout row="0" col="1"   horizontalAlignment="center" verticalAlignment="center">
+            <Label class="gagalin-regular" text="Ελληνικα"></Label>
+        </GridLayout>
+    </GridLayout>
+    <GridLayout #it class="language" rows="*" columns="*,*" (tap)="tap($event,3)" horizontalAlignment="right" verticalAlignment="bottom">
+        <GridLayout row="0" col="0" horizontalAlignment="left" verticalAlignment="center">
+            <Image src="res://italy" stretch="none"></Image>
+        </GridLayout>
+        <GridLayout row="0" col="1"   horizontalAlignment="center" verticalAlignment="center">
+            <Label class="gagalin-regular" text="Italiano"></Label>
         </GridLayout>
     </GridLayout>
 </GridLayout>
