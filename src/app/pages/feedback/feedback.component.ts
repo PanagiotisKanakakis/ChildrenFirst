@@ -57,9 +57,12 @@ export class FeedbackComponent extends AppComponent implements OnInit, AfterCont
 
         if(this.description.localeCompare("") != 0){
             this.text = this.description;
-            if(this.feedback.localeCompare("") == 0){
-                const button = this.page.getViewById('nextButton');
+
+            if(this.feedback == null){
+                let button = this.page.getViewById('nextButton');
                 button.set('visibility', 'collapse');
+                button = this.page.getViewById('playAgainButton');
+                button.set('visibility', '');
             }else{
                 const button = this.page.getViewById('playAgainButton');
                 button.set('visibility', 'collapse');

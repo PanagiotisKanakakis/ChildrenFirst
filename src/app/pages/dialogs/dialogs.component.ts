@@ -54,6 +54,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     private language;
     private FEEDBACK_ROUTE = '/feedback';
     private bubble: any;
+    public isInDialog: any;
     public next: any;
 
     constructor(public page: Page,
@@ -152,7 +153,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
                 this.updateAvatar(src);
             }
         }
-        this.updateCss(sourceId);
+        // this.updateCss(sourceId);
     }
 
     private changeContinueButtonVisibility() {
@@ -169,11 +170,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     private updateAvatar(source: any) {
         if (source['STATE'] == State.OnQuestion || source['STATE'] == State.OnStatements ||
             source['STATE'] == State.OnEnding || source['STATE'] == State.OnFinal) {
-            if (source['AVATAR_POSTITION'] == Position.Left) {
-                this.leftChar = encodeURI(`${knownFolders.currentApp().path}` + source['AVATAR']);
-            } else {
-                this.rightChar = encodeURI(`${knownFolders.currentApp().path}` + source['AVATAR']);
-            }
+            this.rightChar = encodeURI(`${knownFolders.currentApp().path}` + source['AVATAR']);
         }
     }
 
@@ -190,67 +187,101 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
         var definitions = [];
         var payload = this.payload[payloadId];
 
-        if (payload['STATE'] == State.OnQuestion) {
-            this.bubble = true;
-            var blur = {
-                target: rightImage,
-                opacity: 0.2,
-                duration: 1000
-            };
-            var nonBlur = {
-                target: leftImage,
-                opacity: 1,
-                duration: 1000
-            };
-        } else if (payload['LEADS_TO'].includes('E') || payload['LEADS_TO'].includes('D')
-            || payload['LEADS_TO'].includes('F')
-            || payload['AVATAR_POSTITION'] === null) {
-            this.bubble = false;
-            var nonBlur = {
-                target: rightImage,
-                opacity: 1,
-                duration: 1000
-            };
-            var blur = {
-                target: leftImage,
-                opacity: 1,
-                duration: 1000
-            };
-        } else if (payload['AVATAR_POSTITION'] != Position.Left){
-            this.bubble = true;
-            var blur = {
-                target: rightImage,
-                opacity: 1,
-                duration: 1000
-            };
-            var nonBlur = {
-                target: leftImage,
-                opacity: 0.2,
-                duration: 1000
-            };
-        } else if (payload['AVATAR_POSTITION'] != Position.Right) {
-            this.bubble = true;
-            var nonBlur = {
-                target: rightImage,
-                opacity: 1,
-                duration: 1000
-            };
-            var blur = {
-                target: leftImage,
-                opacity: 0.2,
-                duration: 1000
-            };
+
+        for (var target of payload['LEADS_TO'].split(',')) {
+            const src = this.payload[target];
+            if (src['STATE'] == State.OnDescription || src['STATE'] == State.OnFinal) {
+                this.bubble = false;
+                var nonBlur = {
+                    target: rightImage,
+                    opacity: 1,
+                    duration: 1000
+                };
+                var blur = {
+                    target: leftImage,
+                    opacity: 1,
+                    duration: 1000
+                };
+            } else if (src['STATE'] == State.OnQuestion) {
+                this.bubble = true;
+                var blur = {
+                    target: rightImage,
+                    opacity: 1,
+                    duration: 1000
+                };
+                var nonBlur = {
+                    target: leftImage,
+                    opacity: 0.2,
+                    duration: 1000
+                };
+            } else if (src['STATE'] == State.OnAnswer){
+                this.bubble = true;
+                var nonBlur = {
+                    target: rightImage,
+                    opacity: 0.2,
+                    duration: 1000
+                };
+                var blur = {
+                    target: leftImage,
+                    opacity: 1,
+                    duration: 1000
+                };
+                break;
+            }else if(src['STATE'] == State.OnStatements || src['STATE'] == State.OnEnding ){
+                console.log(src['AVATAR_TALKING']);
+                if (src['AVATAR_TALKING'] == Position.Left){
+                    this.bubble = true;
+                    var blur = {
+                        target: rightImage,
+                        opacity: 0.2,
+                        duration: 1000
+                    };
+                    var nonBlur = {
+                        target: leftImage,
+                        opacity: 1,
+                        duration: 1000
+                    };
+                } else if (src['AVATAR_TALKING'] == Position.Right) {
+                    this.bubble = true;
+                    var nonBlur = {
+                        target: rightImage,
+                        opacity: 1,
+                        duration: 1000
+                    };
+                    var blur = {
+                        target: leftImage,
+                        opacity: 0.2,
+                        duration: 1000
+                    };
+                }else{
+                    this.bubble = false;
+                    var nonBlur = {
+                        target: rightImage,
+                        opacity: 1,
+                        duration: 1000
+                    };
+                    var blur = {
+                        target: leftImage,
+                        opacity: 1,
+                        duration: 1000
+                    };
+                }
+            }
         }
+
         definitions.push(blur);
         definitions.push(nonBlur);
 
         var animationSet = new Animation(definitions);
         animationSet.play().then(() => {
             this.updateDialog(payloadId);
+            this.isInDialog = this.bubble;
             this.changeContinueButtonVisibility();
+            // this.updateCss(payloadId);
         }).catch((e) => {
             console.log(e.message);
         });
+
     }
 
     private updateCss(payloadId: any) {
@@ -259,11 +290,11 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
             this.bubble = true;
         } else if (payload['LEADS_TO'].includes('E') || payload['LEADS_TO'].includes('D')
             || payload['LEADS_TO'].includes('F')
-            || payload['AVATAR_POSTITION'] === null) {
+            || payload['AVATAR_TALKING'] === null) {
             this.bubble = false;
-        } else if (payload['AVATAR_POSTITION'] != Position.Left){
+        } else if (payload['AVATAR_TALKING'] != Position.Left){
             this.bubble = true;
-        } else if (payload['AVATAR_POSTITION'] != Position.Right) {
+        } else if (payload['AVATAR_TALKING'] != Position.Right) {
             this.bubble = true;
         }
     }

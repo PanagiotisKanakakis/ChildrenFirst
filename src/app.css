@@ -5,3 +5,7 @@
 .fa {
     font-family: "FontAwesome";
 }
+
+Label{
+    text-transform: capitalize;
+}
