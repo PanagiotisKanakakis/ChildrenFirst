@@ -284,18 +284,4 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
 
     }
 
-    private updateCss(payloadId: any) {
-        var payload = this.payload[payloadId];
-        if (payload['STATE'] == State.OnQuestion) {
-            this.bubble = true;
-        } else if (payload['LEADS_TO'].includes('E') || payload['LEADS_TO'].includes('D')
-            || payload['LEADS_TO'].includes('F')
-            || payload['AVATAR_TALKING'] === null) {
-            this.bubble = false;
-        } else if (payload['AVATAR_TALKING'] != Position.Left){
-            this.bubble = true;
-        } else if (payload['AVATAR_TALKING'] != Position.Right) {
-            this.bubble = true;
-        }
-    }
 }
