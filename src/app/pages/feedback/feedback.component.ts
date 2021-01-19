@@ -36,8 +36,8 @@ export class FeedbackComponent extends AppComponent implements OnInit, AfterCont
     ngAfterContentInit() {
         this.characterSrc = this.data.storage.characterSrc;
         this.score = 'YOUR SCORE: ' + this.data.storage.score;
-        this.description = this.data.storage.description;
-        this.feedback = this.data.storage.feedback;
+        this.description = this.normalizeGreek(this.data.storage.description);
+        this.feedback = this.normalizeGreek(this.data.storage.feedback);
         this.next = encodeURI(`${knownFolders.currentApp().path}/assets/images/continue.png`);
         this.addDescription();
         if (Device.deviceType === DeviceType.Tablet) {

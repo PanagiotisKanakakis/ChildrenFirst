@@ -1,15 +1,11 @@
-import {AfterContentInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AppComponent} from '@src/app/app.component';
 import {Device, Enums, GestureEventData, Page} from '@nativescript/core';
 import {RouterExtensions} from '@nativescript/angular';
 import {File, knownFolders, path} from 'tns-core-modules/file-system';
 import {NavigationExtras} from '@angular/router';
-import {isAndroid} from 'tns-core-modules/platform';
 import {Data} from '@src/app/domain/Data';
 import DeviceType = Enums.DeviceType;
-
-
-const fs = require('tns-core-modules/file-system');
 let sqlite = require('nativescript-sqlite');
 
 @Component({
@@ -25,8 +21,8 @@ export class InformationComponent extends AppComponent implements OnInit {
     public description: string;
     private counter: any = 0;
     private information: Array<any>;
-    public next:any;
-    public back:any;
+    public next: any;
+    public back: any;
     @ViewChild('bc') bc: ElementRef;
 
     constructor(public page: Page,
@@ -42,8 +38,8 @@ export class InformationComponent extends AppComponent implements OnInit {
                 this.information = [];
                 for (let row in rows) {
                     this.information.push({
-                        'description': rows[row][description_column],
-                        'title': rows[row][title_column],
+                        'description': this.normalizeGreek(rows[row][description_column]),
+                        'title': this.normalizeGreek(rows[row][title_column]),
                     });
                 }
                 this.description = this.information[this.counter]['description'];
@@ -58,11 +54,12 @@ export class InformationComponent extends AppComponent implements OnInit {
             const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/tablet.css`));
             let css = File.fromPath(pageCss).readTextSync(() => {
             });
-            // console.log(css);
+
             this.page.addCss(css);
         }
 
     }
+
 
     ngOnInit(): void {
         this.next = encodeURI(`${knownFolders.currentApp().path}/assets/images/continue.png`);
@@ -70,7 +67,7 @@ export class InformationComponent extends AppComponent implements OnInit {
     }
 
     onNextTap(args: GestureEventData) {
-        this.bc.nativeElement.set('opacity',1);
+        this.bc.nativeElement.set('opacity', 1);
         this.counter++;
         if (this.counter > 4) {
             this.router.navigate(this.REDIRECT_ROUTE, {clearHistory: true} as NavigationExtras);
@@ -83,8 +80,9 @@ export class InformationComponent extends AppComponent implements OnInit {
         this.counter--;
         this.description = this.information[this.counter]['description'];
         this.title = this.information[this.counter]['title'];
-        if(this.counter == 0)
-            this.bc.nativeElement.set('opacity',0);
+        if (this.counter == 0) {
+            this.bc.nativeElement.set('opacity', 0);
+        }
     }
 
 }

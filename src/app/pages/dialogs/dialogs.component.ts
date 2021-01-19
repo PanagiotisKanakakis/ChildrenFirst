@@ -1,6 +1,6 @@
 import {AfterContentInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AppComponent} from '@src/app/app.component';
-import {Device, Enums, GestureEventData, HorizontalAlignment, Image, Page, StackLayout} from '@nativescript/core';
+import {Device, Enums, GestureEventData, GridLayout, HorizontalAlignment, Image, Page, StackLayout} from '@nativescript/core';
 import {RouterExtensions} from '@nativescript/angular';
 import {File, knownFolders, path} from 'tns-core-modules/file-system';
 import {LabelPayload} from '@src/app/pages/dialogs/labelPayload';
@@ -26,6 +26,8 @@ enum Position {
 var sqlite = require('nativescript-sqlite');
 
 
+
+
 @Component({
     selector: 'app-dialogs',
     templateUrl: './dialogs.component.html',
@@ -47,9 +49,9 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     private score: number;
     public background: string;
     private stackLayout: StackLayout;
+    private gridLayout: GridLayout;
     labels: LabelPayload[];
-    @ViewChild('dialogsContent')
-    gridContent: ElementRef;
+    @ViewChild('dialogsContent') gridContent: ElementRef;
     private state: State;
     private payload = {};
     private language;
@@ -57,12 +59,14 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     private bubble: any;
     public isInDialog: any;
     public next: any;
+    private maxScore: any;
 
     constructor(public page: Page,
                 public router: RouterExtensions,
                 private data: Data) {
         super(page, router);
         this.language = this.data.storage.language;
+        this.maxScore = 0;
         new sqlite(encodeURI(path.join(`${knownFolders.currentApp().path}/assets/chf.db`))).then(db => {
             db.resultType(sqlite.RESULTSASOBJECT);
             db.all('SELECT * FROM payload p , stories s where p.STORY_ID = s.STORY_ID and' +
@@ -83,12 +87,12 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     }
 
     ngOnInit(): void {
-        this.page.backgroundImage = encodeURI(this.background);
-        // this.page.className = 'dialog-background';
         this.stackLayout = <StackLayout>this.page.getViewById('dialogs-content');
+        this.gridLayout = <GridLayout>this.page.getViewById('grid');
         this.stackLayout.className = 'centerAlignment';
+        this.gridLayout.backgroundImage = encodeURI(this.background);
+        this.gridLayout.className = 'dialog-background';
         this.next = encodeURI(`${knownFolders.currentApp().path}/assets/images/continue.png`);
-        this.background = encodeURI(this.background);
     }
 
     ngAfterContentInit() {
@@ -96,7 +100,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
         let source = this.payload['D1'];
         this.labels.push({
             state: source['STATE'],
-            score: source['SCORE'], text: source[this.language], 'id': 'D1'
+            score: source['SCORE'], text: this.normalizeGreek(source[this.language]), 'id': 'D1'
         });
         this.bubble = false;
         this.state = State.OnDescription;
@@ -111,7 +115,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     onImageTap(args: GestureEventData, payloadId: string) {
         if (this.state == State.OnQuestion) {
             this.score += parseInt(this.payload[payloadId]['SCORE']);
-            this.scoreText = Math.floor((this.score / 45) * 100) + '%';
+            this.scoreText = Math.floor((this.score / 60) * 100) + '%';
             this.animate(payloadId);
         }
     }
@@ -128,36 +132,36 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
             const src = this.payload[target];
             if (src['STATE'] == State.OnDescription) {
                 this.labels.push({
-                    state: src['STATE'], score: src['SCORE'], text: src[this.language], 'id': target
+                    state: src['STATE'], score: src['SCORE'], text: this.normalizeGreek(src[this.language]), 'id': target
                 });
             } else if (src['STATE'] == State.OnEnding) {
                 if (target === 'E1' && this.score >= 0 && this.score <= 20) {
                     this.labels.push({
                         state: src['STATE'], score: src['SCORE'],
-                        text: src[this.language], 'id': target
+                        text: this.normalizeGreek(src[this.language]), 'id': target
                     });
                     this.updateAvatar(src);
                 } else if (target === 'E2' && this.score >= 21 && this.score <= 30) {
                     this.labels.push({
                         state: src['STATE'], score: src['SCORE'],
-                        text: src[this.language], 'id': target
+                        text: this.normalizeGreek(src[this.language]), 'id': target
                     });
                     this.updateAvatar(src);
                 } else if (target === 'E3' && this.score >= 31) {
                     this.labels.push({
                         state: src['STATE'], score: src['SCORE'],
-                        text: src[this.language], 'id': target
+                        text: this.normalizeGreek(src[this.language]), 'id': target
                     });
                     this.updateAvatar(src);
                 }
             } else if (src['STATE'] == State.OnFinal) {
-                this.data.storage['description'] = src[this.language];
+                this.data.storage['description'] = this.normalizeGreek(src[this.language]);
                 this.data.storage['feedback'] = this.payload[src['LEADS_TO']][this.language];
                 this.moveToFeedbackPage(src);
             } else {
                 this.labels.push({
                     state: src['STATE'], score: src['SCORE'],
-                    text: src[this.language], 'id': target
+                    text: this.normalizeGreek(src[this.language]), 'id': target
                 });
                 this.updateAvatar(src);
             }

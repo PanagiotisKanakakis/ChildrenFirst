@@ -1,12 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Device, Enums, Page} from '@nativescript/core';
+import {Enums, Page} from '@nativescript/core';
 import {android as androidApp} from 'tns-core-modules/application';
 import {Device as device} from 'tns-core-modules/platform';
 import {RouterExtensions} from '@nativescript/angular';
-import {File, knownFolders, path} from 'tns-core-modules/file-system';
-import DeviceType = Enums.DeviceType;
 
 declare var android: any;
+var greekUtils = require('greek-utils');
 
 
 @Component({
@@ -33,6 +32,10 @@ export class AppComponent implements OnInit {
                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
             );
         }
+    }
+
+    normalizeGreek(text) {
+        return greekUtils.sanitizeDiacritics(text);
     }
 
     ngOnInit() {

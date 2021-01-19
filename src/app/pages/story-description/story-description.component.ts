@@ -28,9 +28,7 @@ export class StoryDescriptionComponent extends AppComponent implements OnInit {
         if (Device.deviceType === DeviceType.Tablet) {
             this.page.className = 'tablet';
             const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/tablet.css`));
-            let css = File.fromPath(pageCss).readTextSync(() => {
-            });
-            // console.log(css);
+            let css = File.fromPath(pageCss).readTextSync(() => {});
             this.page.addCss(css);
         }
     }
@@ -39,7 +37,7 @@ export class StoryDescriptionComponent extends AppComponent implements OnInit {
     ngOnInit(): void {
         this.playerName = this.data.storage.name;
         this.characterSrc = this.data.storage.characterSrc;
-        this.storyDescription = this.data.storage.storyDescription;
+        this.storyDescription = this.normalizeGreek(this.data.storage.storyDescription);
         this.next = encodeURI(`${knownFolders.currentApp().path}/assets/images/continue.png`);
         this.back = encodeURI(`${knownFolders.currentApp().path}/assets/images/back.png`);
 

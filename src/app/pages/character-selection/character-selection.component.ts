@@ -49,10 +49,10 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
                 for (var row in rows) {
                     this.characters.push({
                         'avatar': rows[row]['LC'],
-                        'characterDESC': rows[row][character_column],
-                        'storyDESC': rows[row][story_column],
+                        'characterDESC': this.normalizeGreek(rows[row][character_column]),
+                        'storyDESC': this.normalizeGreek(rows[row][story_column]),
                         'storyID': rows[row]['STORY_ID'],
-                        'name': rows[row]['CHNAME']
+                        'name': this.normalizeGreek(rows[row]['CHNAME'])
                     });
                 }
             });
@@ -64,11 +64,9 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
             const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/tablet.css`));
             let css = File.fromPath(pageCss).readTextSync(() => {
             });
-            // console.log(css);
             this.page.addCss(css);
         }
     }
-
 
     ngAfterContentInit() {
         this.page.backgroundSpanUnderStatusBar = true;
