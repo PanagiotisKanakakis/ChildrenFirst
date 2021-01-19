@@ -1,12 +1,13 @@
 import {AfterContentInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AppComponent} from '@src/app/app.component';
-import {Enums, GestureEventData, HorizontalAlignment, Image, Page, StackLayout} from '@nativescript/core';
+import {Device, Enums, GestureEventData, HorizontalAlignment, Image, Page, StackLayout} from '@nativescript/core';
 import {RouterExtensions} from '@nativescript/angular';
-import {knownFolders, path} from 'tns-core-modules/file-system';
+import {File, knownFolders, path} from 'tns-core-modules/file-system';
 import {LabelPayload} from '@src/app/pages/dialogs/labelPayload';
 import {Data} from '@src/app/domain/Data';
 import {Animation} from '@nativescript/core/ui/animation';
 import {style, transition, trigger, animate} from '@angular/animations';
+import DeviceType = Enums.DeviceType;
 
 enum State {
     OnDescription,
@@ -32,8 +33,8 @@ var sqlite = require('nativescript-sqlite');
     animations: [
         trigger('fadeIn', [
             transition(':enter', [
-                style({ opacity: '0' }),
-                animate('.5s ease-out', style({ opacity: '1' })),
+                style({opacity: '0'}),
+                animate('.5s ease-out', style({opacity: '1'})),
             ]),
         ]),
     ]
@@ -44,7 +45,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     public leftChar: string;
     public scoreText: string;
     private score: number;
-    private background: string;
+    public background: string;
     private stackLayout: StackLayout;
     labels: LabelPayload[];
     @ViewChild('dialogsContent')
@@ -78,14 +79,16 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
         });
         this.score = 0;
         this.scoreText = '0%';
+
     }
 
     ngOnInit(): void {
         this.page.backgroundImage = encodeURI(this.background);
-        this.page.className = 'dialog-background';
-        this.stackLayout = <StackLayout> this.page.getViewById('dialogs-content');
+        // this.page.className = 'dialog-background';
+        this.stackLayout = <StackLayout>this.page.getViewById('dialogs-content');
         this.stackLayout.className = 'centerAlignment';
         this.next = encodeURI(`${knownFolders.currentApp().path}/assets/images/continue.png`);
+        this.background = encodeURI(this.background);
     }
 
     ngAfterContentInit() {
@@ -97,6 +100,12 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
         });
         this.bubble = false;
         this.state = State.OnDescription;
+        if (Device.deviceType === DeviceType.Tablet) {
+            this.page.className = 'tablet';
+            const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/tablet.css`));
+            let css = File.fromPath(pageCss).readTextSync(() => {});
+            this.page.addCss(css);
+        }
     }
 
     onImageTap(args: GestureEventData, payloadId: string) {
@@ -182,8 +191,8 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     }
 
     private animate(payloadId: any) {
-        let rightImage = <Image> this.page.getViewById('right');
-        let leftImage = <Image> this.page.getViewById('left');
+        let rightImage = <Image>this.page.getViewById('right');
+        let leftImage = <Image>this.page.getViewById('left');
         var definitions = [];
         var payload = this.payload[payloadId];
 
@@ -214,7 +223,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
                     opacity: 0.2,
                     duration: 1000
                 };
-            } else if (src['STATE'] == State.OnAnswer){
+            } else if (src['STATE'] == State.OnAnswer) {
                 this.bubble = true;
                 var nonBlur = {
                     target: rightImage,
@@ -227,9 +236,9 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
                     duration: 1000
                 };
                 break;
-            }else if(src['STATE'] == State.OnStatements || src['STATE'] == State.OnEnding ){
+            } else if (src['STATE'] == State.OnStatements || src['STATE'] == State.OnEnding) {
                 console.log(src['AVATAR_TALKING']);
-                if (src['AVATAR_TALKING'] == Position.Left){
+                if (src['AVATAR_TALKING'] == Position.Left) {
                     this.bubble = true;
                     var blur = {
                         target: rightImage,
@@ -253,7 +262,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
                         opacity: 0.2,
                         duration: 1000
                     };
-                }else{
+                } else {
                     this.bubble = false;
                     var nonBlur = {
                         target: rightImage,

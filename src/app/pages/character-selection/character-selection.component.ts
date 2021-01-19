@@ -1,5 +1,5 @@
 import {AfterContentInit, Component, ElementRef, ViewChild} from '@angular/core';
-import {Builder, ContentView, GestureEventData, GridLayout, ItemSpec, Page, SwipeGestureEventData} from '@nativescript/core';
+import {Builder, ContentView, Device, Enums, GestureEventData, GridLayout, ItemSpec, Page, SwipeGestureEventData} from '@nativescript/core';
 import {Screen} from '@nativescript/core/platform';
 import {File, knownFolders, path} from 'tns-core-modules/file-system';
 import {GridUnitType} from '@nativescript/core/ui/layouts/grid-layout';
@@ -7,6 +7,7 @@ import {Animation} from '@nativescript/core/ui/animation';
 import {AppComponent} from '@src/app/app.component';
 import {RouterExtensions} from '@nativescript/angular';
 import {Data} from '@src/app/domain/Data';
+import DeviceType = Enums.DeviceType;
 
 const xml2js = require('xml2js');
 var sqlite = require('nativescript-sqlite');
@@ -58,6 +59,14 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
         }, error => {
             console.log('Failed to connect to db!');
         });
+        if (Device.deviceType === DeviceType.Tablet) {
+            this.page.className = 'tablet';
+            const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/tablet.css`));
+            let css = File.fromPath(pageCss).readTextSync(() => {
+            });
+            // console.log(css);
+            this.page.addCss(css);
+        }
     }
 
 

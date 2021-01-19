@@ -1,10 +1,11 @@
 import {AfterContentInit, Component, OnInit} from '@angular/core';
-import {GestureEventData, Page} from '@nativescript/core';
+import {Device, Enums, GestureEventData, Page} from '@nativescript/core';
 import {RouterExtensions} from '@nativescript/angular';
 import {ActivatedRoute, NavigationExtras} from '@angular/router';
 import {AppComponent} from '@src/app/app.component';
 import {Data} from '@src/app/domain/Data';
-import {knownFolders} from 'tns-core-modules/file-system';
+import {File, knownFolders, path} from 'tns-core-modules/file-system';
+import DeviceType = Enums.DeviceType;
 
 @Component({
     selector: 'app-feedback',
@@ -39,6 +40,12 @@ export class FeedbackComponent extends AppComponent implements OnInit, AfterCont
         this.feedback = this.data.storage.feedback;
         this.next = encodeURI(`${knownFolders.currentApp().path}/assets/images/continue.png`);
         this.addDescription();
+        if (Device.deviceType === DeviceType.Tablet) {
+            this.page.className = 'tablet';
+            const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/tablet.css`));
+            let css = File.fromPath(pageCss).readTextSync(() => {});
+            this.page.addCss(css);
+        }
     }
 
     onPlayAgainTap(args: GestureEventData) {

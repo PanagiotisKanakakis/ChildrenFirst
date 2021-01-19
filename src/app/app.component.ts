@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Page} from '@nativescript/core';
+import {Device, Enums, Page} from '@nativescript/core';
 import {android as androidApp} from 'tns-core-modules/application';
 import {Device as device} from 'tns-core-modules/platform';
 import {RouterExtensions} from '@nativescript/angular';
+import {File, knownFolders, path} from 'tns-core-modules/file-system';
+import DeviceType = Enums.DeviceType;
 
 declare var android: any;
 
@@ -19,8 +21,7 @@ export class AppComponent implements OnInit {
         public page: Page,
         public router: RouterExtensions
     ) {
-        // orientation.setOrientation('landscape', false);
-        // orientation.disableRotation();
+
 
         if (androidApp && device.sdkVersion >= '21') {
             const View = android.view.View;

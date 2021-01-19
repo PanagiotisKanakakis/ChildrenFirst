@@ -16,24 +16,13 @@
             </GridLayout>
         </GridLayout>
         <GridLayout row="1" columns="*">
-<!--            <Button id="playAgainButton" class="-rounded-lg play-again-button gagalin-regular" verticalAlignment="bottom"-->
-<!--                    horizontalAlignment="right" (tap)="onPlayAgainTap($event)" >-->
-<!--                <FormattedString>-->
-<!--                    <Span text="THANKS FOR PLAYING! CHOOSE ANOTHER CHARACTER   " class="gagalin-regular"></Span>-->
-<!--                    <Span class="fas" text="&#xf061;"></Span>-->
-<!--                </FormattedString>-->
-<!--            </Button>-->
-            <GridLayout id="playAgainButton" col="0"  horizontalAlignment="right" style="margin-bottom: 10">
-                <Label class="gagalin-regular" text="THANKS FOR PLAYING! CHOOSE ANOTHER CHARACTER" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-right: 50"></Label>
-                <Image [src]="next" (tap)="onPlayAgainTap($event)"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="none" style="margin-right: 10"></Image>
+            <GridLayout id="playAgainButton" col="0"  horizontalAlignment="right" >
+                <Label class="gagalin-regular play-again" text="THANKS FOR PLAYING! CHOOSE ANOTHER CHARACTER  " verticalAlignment="bottom"  horizontalAlignment="left" style="margin-bottom: 10"></Label>
+                <Image width="40" height="40" [src]="next" (tap)="onPlayAgainTap($event)"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="aspectFit" style="margin-right: 10"></Image>
             </GridLayout>
-<!--            <Button id="nextButton" class="-rounded-lg next-button gagalin-regular" verticalAlignment="bottom"-->
-<!--                    horizontalAlignment="right"-->
-<!--                    (tap)="onNextTap($event)" text="NEXT">-->
-<!--            </Button>-->
             <GridLayout id="nextButton" col="0"  horizontalAlignment="right" style="margin-bottom: 10">
-                <Label class="gagalin-regular" text="NEXT" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-right: 50"></Label>
-                <Image [src]="next" (tap)="onNextTap($event)"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="none" style="margin-right: 10"></Image>
+<!--                <Label class="gagalin-regular" text="NEXT" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-right: 50"></Label>-->
+                <Image class="imageButton" [src]="next" (tap)="onNextTap($event)"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="aspectFit" style="margin-right: 10"></Image>
             </GridLayout>
         </GridLayout>
     </GridLayout>

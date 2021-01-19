@@ -21,7 +21,6 @@
     "available-devices": "tns device android --available-devices",
     "device": "tns device run org.nativescript.childrenfirst ",
     "ios": "tns run ios --no-hmr",
-    "mobile": "tns run",
     "preview": "tns preview",
     "ngcc": "ngcc --properties es2015 module main --first-only",
     "postinstall": "npm run ngcc"
@@ -41,6 +40,7 @@
     "@nativescript/core": "rc",
     "@nativescript/theme": "~2.2.1",
     "core-js": "^2.6.9",
+    "nativescript": "^7.1.2",
     "nativescript-fontawesome": "^1.0.0",
     "nativescript-material-floatingactionbutton": "^2.5.4",
     "nativescript-materialdropdownlist": "^1.0.15",
@@ -51,7 +51,6 @@
     "nativescript-text-justify": "^2.0.0",
     "rxjs": "~6.5.5",
     "timers": "^0.1.1",
-    "tns-core-modules": "^6.5.24",
     "xml-js": "^1.6.11",
     "zone.js": "~0.10.2"
   },
@@ -60,6 +59,7 @@
     "@angular/cli": "~10.0.0",
     "@angular/compiler-cli": "~10.0.0",
     "@nativescript-community/ui-material-floatingactionbutton": "^5.1.16",
+    "@nativescript/ios": "7.1.0",
     "@nativescript/schematics": "^10.0.2",
     "@nativescript/tslint-rules": "~0.0.5",
     "@nativescript/webpack": "~2.0.0",
@@ -78,6 +78,7 @@
     "nativescript-angular": "^10.0.0",
     "nativescript-orientation": "^2.2.5",
     "protractor": "~5.4.3",
+    "tns-core-modules": "^6.5.24",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.0"

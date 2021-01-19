@@ -2,7 +2,7 @@
     <GridLayout rows="5*, *">
         <GridLayout row="0" rows="*" class="m-t-20">
             <GridLayout row="0" rows="auto" verticalAlignment="top" >
-                <Label class="gagalin-regular information-header" [text]=title textWrap="true" ></Label>
+                <Label class="gagalin-regular information-header " [text]=title textWrap="true" ></Label>
             </GridLayout>
             <GridLayout row="1" columns="*,2*" class="information-bordered">
                 <GridLayout class="carousel-item-circle" col="0" row="0">
@@ -15,14 +15,14 @@
                 </GridLayout>
             </GridLayout>
         </GridLayout>
-        <GridLayout row="1" columns="*,*" verticalAlignment="bottom">
-            <GridLayout #bc col="0" (tap)="onBackTap($event)" horizontalAlignment="left" style="opacity:0 ;margin-bottom: 10">
-                <Label class="gagalin-regular" text="BACK" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-left: 50"></Label>
-                <Image  [src]="back"   verticalAlignment="bottom"  horizontalAlignment="left" stretch="none" style="margin-left: 10"></Image>
+        <GridLayout row="1" columns="*,*" verticalAlignment="bottom" >
+            <GridLayout #bc col="0" (tap)="onBackTap($event)" horizontalAlignment="left" style="opacity:0 ;margin-left: 10">
+<!--                <Label row="0" class="gagalin-regular backLabel" text="BACK" verticalAlignment="bottom"  horizontalAlignment="left" ></Label>-->
+                <Image class="imageButton" row="0"  [src]="back" verticalAlignment="bottom"  horizontalAlignment="left" stretch="aspectFit"></Image>
             </GridLayout>
-            <GridLayout col="1"  (tap)="onNextTap($event)"  horizontalAlignment="right" style="margin-bottom: 10">
-                <Label class="gagalin-regular" text="NEXT" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-right: 50"></Label>
-                <Image [src]="next"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="none" style="margin-right: 10"></Image>
+            <GridLayout col="1"  (tap)="onNextTap($event)"  horizontalAlignment="right" style="margin-right: 10;">
+<!--                <Label row="0"   class="gagalin-regular nextLabel" text="NEXT" verticalAlignment="bottom"  horizontalAlignment="right"></Label>-->
+                <Image row="0" class="imageButton" #nt  [src]="next"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="aspectFit"></Image>
             </GridLayout>
         </GridLayout>
     </GridLayout>

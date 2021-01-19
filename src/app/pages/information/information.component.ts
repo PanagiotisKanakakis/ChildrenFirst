@@ -1,12 +1,12 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterContentInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AppComponent} from '@src/app/app.component';
 import {Device, Enums, GestureEventData, Page} from '@nativescript/core';
 import {RouterExtensions} from '@nativescript/angular';
 import {File, knownFolders, path} from 'tns-core-modules/file-system';
 import {NavigationExtras} from '@angular/router';
 import {isAndroid} from 'tns-core-modules/platform';
-import DeviceType = Enums.DeviceType;
 import {Data} from '@src/app/domain/Data';
+import DeviceType = Enums.DeviceType;
 
 
 const fs = require('tns-core-modules/file-system');
@@ -52,19 +52,16 @@ export class InformationComponent extends AppComponent implements OnInit {
         }, error => {
             console.log('Failed to connect to db!', error);
         });
-        if (isAndroid) {
-            if (Device.deviceType === DeviceType.Tablet) {
-                this.page.className = 'tablet';
-                const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/android.tablet.css`));
-                let css = File.fromPath(pageCss).readTextSync(() => {
-                });
-                console.log(css);
-                this.page.addCss(css);
-                // this.page.addCss("~/pages/information/android.tablet.css");
-            } else if (Device.deviceType === DeviceType.Phone) {
-                console.log('phone');
-            }
+
+        if (Device.deviceType === DeviceType.Tablet) {
+            this.page.className = 'tablet';
+            const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/tablet.css`));
+            let css = File.fromPath(pageCss).readTextSync(() => {
+            });
+            // console.log(css);
+            this.page.addCss(css);
         }
+
     }
 
     ngOnInit(): void {

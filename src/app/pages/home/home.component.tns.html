@@ -8,27 +8,27 @@
             <GridLayout row="0" col="0" horizontalAlignment="left" verticalAlignment="bottom" style="margin-left: 5">
                 <Image [src]="euLogo"></Image>
             </GridLayout>
-            <GridLayout row="0" col="1" horizontalAlignment="center" verticalAlignment="bottom">
-                <Image [src]="imageButton" (tap)="onTap($event)" ></Image>
+            <GridLayout row="0" col="1" horizontalAlignment="center" verticalAlignment="bottom" (tap)="onTap($event)">
+                <Image [src]="imageButton"  ></Image>
                 <Label class="gagalin-regular start" text="START" verticalAlignment="center"  horizontalAlignment="center"></Label>
             </GridLayout>
             <GridLayout row="0" col="2"  horizontalAlignment="right" verticalAlignment="bottom" style="margin-right: 5;">
-                <MDFloatingActionButton (tap)="fabTap($event)" class="fab-button fab"
-                                        src="res://gear" ></MDFloatingActionButton>
+                <MDFloatingActionButton  (tap)="fabTap($event)" class="fab-button fab"
+                                        src="res://gear" stretch="stretch"></MDFloatingActionButton>
             </GridLayout>
         </GridLayout>
     </GridLayout>
     <GridLayout #lt class="language" rows="*" columns="*,*" (tap)="tap($event,4)" horizontalAlignment="right" verticalAlignment="bottom">
         <GridLayout row="0" col="0" horizontalAlignment="left" verticalAlignment="center">
-            <Image src="res://lithuania" stretch="none"></Image>
+            <Image width="100" height="100" src="res://lithuania" stretch="aspectFit"></Image>
         </GridLayout>
         <GridLayout row="0" col="1" horizontalAlignment="center" verticalAlignment="center">
-            <Label class="gagalin-regular" text="Lietuvių "></Label>
+            <Label class="gagalin-regular" text="Lietuvių"></Label>
         </GridLayout>
     </GridLayout>
     <GridLayout #en class="language" rows="*" columns="*,*" (tap)="tap($event,1)" horizontalAlignment="right" verticalAlignment="bottom">
         <GridLayout row="0" col="0" horizontalAlignment="left" verticalAlignment="center">
-            <Image src="res://britain" stretch="none"></Image>
+            <Image width="100" height="100" src="res://britain" stretch="aspectFit"></Image>
         </GridLayout>
         <GridLayout row="0" col="1"  horizontalAlignment="center" verticalAlignment="center">
             <Label class="gagalin-regular" text="English"></Label>
@@ -36,7 +36,7 @@
     </GridLayout>
     <GridLayout #gr class="language" rows="*" columns="*,*" (tap)="tap($event,2)" horizontalAlignment="right" verticalAlignment="bottom">
         <GridLayout row="0" col="0" horizontalAlignment="left" verticalAlignment="center">
-            <Image src="res://greece" stretch="none"></Image>
+            <Image width="100" height="100" src="res://greece" stretch="aspectFit"></Image>
         </GridLayout>
         <GridLayout row="0" col="1"   horizontalAlignment="center" verticalAlignment="center">
             <Label class="gagalin-regular" text="Ελληνικα"></Label>
@@ -44,7 +44,7 @@
     </GridLayout>
     <GridLayout #it class="language" rows="*" columns="*,*" (tap)="tap($event,3)" horizontalAlignment="right" verticalAlignment="bottom">
         <GridLayout row="0" col="0" horizontalAlignment="left" verticalAlignment="center">
-            <Image src="res://italy" stretch="none"></Image>
+            <Image width="100" height="100" src="res://italy" stretch="aspectFit"></Image>
         </GridLayout>
         <GridLayout row="0" col="1"   horizontalAlignment="center" verticalAlignment="center">
             <Label class="gagalin-regular" text="Italiano"></Label>

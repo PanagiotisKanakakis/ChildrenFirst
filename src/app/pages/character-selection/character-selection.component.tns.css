@@ -11,6 +11,58 @@
     margin-top: 20px;
 }
 
+.chr-description{
+    color: black;
+    font-size: 36;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.caro-item-dot {
+    background:black;
+    border-radius: 6;
+    height: 10;
+    width: 10;
+}
+
+.caro-item-dot-selected {
+    opacity: .3;
+}
+
+.carousel-item-head {
+    color: black;
+    font-size: 36;
+    text-align: center;
+}
+
+.carousel-loading {
+    font-size: 20vmax;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.carousel-item-circle {
+/*//background: #ffffff;*/
+    width: 100%;
+    height: 100%;
+    /*clip-path: circle(80% at 50% 50%)*/
+}
+
+
+.carousel-item-icon {
+    font-size: 77;
+    color: #0C7DA7;
+    text-align: center;
+    horizontal-align: center;
+    vertical-align: center;
+    transform: scale(0.6);
+}
+
+.bordered{
+    margin-top: 30%;
+}
+
+
 
 
 

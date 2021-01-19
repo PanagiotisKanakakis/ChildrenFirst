@@ -14,14 +14,13 @@
     font-size: 15;
 }
 
-.information-next-button{
-    background-color: lightgray;
-    opacity: 0.9;
-    font-size: 20;
-    /*font-style: italic;*/
-    border-radius: 50%;
-    text-align: center;
-    width: 20%;
-    margin-bottom: 10;
-    margin-right: 20;
+ .nextLabel{
+    font-size:20;
+     margin-bottom: 10;
+    margin-right: 80;
+}
+
+ .backLabel{
+    font-size:20;
+    margin-left: 80;
 }

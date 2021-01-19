@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {GestureEventData, Page} from '@nativescript/core';
+import {Device, Enums, GestureEventData, Page} from '@nativescript/core';
 import {RouterExtensions} from '@nativescript/angular';
 import {Data} from '@src/app/domain/Data';
 import {AppComponent} from '@src/app/app.component';
-import {knownFolders} from 'tns-core-modules/file-system';
+import {File, knownFolders, path} from 'tns-core-modules/file-system';
+import DeviceType = Enums.DeviceType;
 
 @Component({
     selector: 'app-story-description',
@@ -24,6 +25,14 @@ export class StoryDescriptionComponent extends AppComponent implements OnInit {
         private data: Data
     ) {
         super(page, router);
+        if (Device.deviceType === DeviceType.Tablet) {
+            this.page.className = 'tablet';
+            const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/tablet.css`));
+            let css = File.fromPath(pageCss).readTextSync(() => {
+            });
+            // console.log(css);
+            this.page.addCss(css);
+        }
     }
 
 

@@ -1,4 +1,4 @@
-<GridLayout rows="*" columns="*, 4*, *">
+<GridLayout class="page dialog-background" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" rows="*" columns="*, 4*, *" >
     <GridLayout row="0" col="0">
         <Image id="left" [src]="leftChar" horizontalAlignment="center" verticalAlignment="bottom"></Image>
         <Label [text]="scoreText" class="dialog-score gagalin-regular" horizontalAlignment="center"
@@ -18,9 +18,9 @@
             <Image id="right" [src]="rightChar" ></Image>
         </GridLayout>
 
-        <GridLayout id="button" row="1" (tap)="onContinueTap($event)" verticalAlignment="bottom" horizontalAlignment="center" style="margin-bottom: 10">
-            <Label class="gagalin-regular" text="CONTINUE" verticalAlignment="center"  horizontalAlignment="center" style="margin-right: 50"></Label>
-            <Image [src]="next"  verticalAlignment="center"  horizontalAlignment="right" style="margin-right: 10" stretch="none"></Image>
+        <GridLayout id="button" row="1" (tap)="onContinueTap($event)" verticalAlignment="bottom" horizontalAlignment="right" style="margin-right: 10">
+<!--            <Label class="gagalin-regular" text="CONTINUE" verticalAlignment="center"  horizontalAlignment="center" style="margin-right: 50"></Label>-->
+            <Image class="imageButton" [src]="next"  verticalAlignment="center"  horizontalAlignment="right" stretch="aspectFit"></Image>
         </GridLayout>
     </GridLayout>
 </GridLayout>

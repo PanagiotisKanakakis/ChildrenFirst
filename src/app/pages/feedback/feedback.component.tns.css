@@ -16,13 +16,7 @@
     font-size: 15;
 }
 
-.play-again-button{
-    /*font-style: italic;*/
-    border-radius: 50%;
-    font-size: 15;
-    text-align: center;
-    width: 40%;
-    margin-bottom: 10;
-    margin-right: 20;
+.play-again{
+    margin-right: 50;
 }
 

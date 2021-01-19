@@ -16,13 +16,13 @@
             </GridLayout>
         </GridLayout>
         <GridLayout row="1" columns="*,*" verticalAlignment="bottom">
-            <GridLayout #bc col="0" horizontalAlignment="left" style="margin-bottom: 10">
-                <Label class="gagalin-regular" text="BACK" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-left: 50"></Label>
-                <Image  [src]="back" (tap)="onBackTap($event)"  verticalAlignment="bottom"  horizontalAlignment="left" stretch="none" style="margin-left: 10"></Image>
+            <GridLayout #bc col="0" horizontalAlignment="left" style="margin-bottom: 0">
+<!--                <Label class="gagalin-regular" text="BACK" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-left: 50"></Label>-->
+                <Image  class="imageButton" [src]="back" (tap)="onBackTap($event)"  verticalAlignment="bottom"  horizontalAlignment="left" stretch="aspectFit" style="margin-left: 10"></Image>
             </GridLayout>
-            <GridLayout col="1"  horizontalAlignment="right" style="margin-bottom: 10">
-                <Label class="gagalin-regular" text="CONTINUE" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-right: 50"></Label>
-                <Image [src]="next" (tap)="onContinueTap($event)"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="none" style="margin-right: 10"></Image>
+            <GridLayout col="1"  horizontalAlignment="right" style="margin-bottom: 0">
+<!--                <Label class="gagalin-regular" text="CONTINUE" verticalAlignment="bottom"  horizontalAlignment="center" style="margin-right: 50"></Label>-->
+                <Image class="imageButton" [src]="next" (tap)="onContinueTap($event)"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="aspectFit" style="margin-right: 10"></Image>
             </GridLayout>
         </GridLayout>
     </GridLayout>

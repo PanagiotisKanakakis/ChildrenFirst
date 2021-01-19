@@ -1,11 +1,12 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {GestureEventData, Page, View} from '@nativescript/core';
-import {knownFolders} from 'tns-core-modules/file-system';
+import {Device, Enums, GestureEventData, Page, View} from '@nativescript/core';
+import {File, knownFolders, path} from 'tns-core-modules/file-system';
 import {NavigationExtras} from '@angular/router';
 import {AppComponent} from '@src/app/app.component';
 import {RouterExtensions} from '@nativescript/angular';
 import {Data} from '@src/app/domain/Data';
 import {Animation} from '@nativescript/core/ui/animation';
+import DeviceType = Enums.DeviceType;
 
 @Component({
     selector: 'app-home',
@@ -42,6 +43,16 @@ export class HomeComponent extends AppComponent implements OnInit {
         this.imageButton = encodeURI(`${knownFolders.currentApp().path}/assets/images/intro_start_clicked.png`);
         this.euLogo = encodeURI(`${knownFolders.currentApp().path}/assets/images/eulogo.jpg`);
         this.data.storage = {'language': 'EN'};
+
+
+        if (Device.deviceType === DeviceType.Tablet) {
+            this.page.className = 'tablet';
+            const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/tablet.css`));
+            let css = File.fromPath(pageCss).readTextSync(() => {
+            });
+            // console.log(css);
+            this.page.addCss(css);
+        }
     }
 
     onTap(args: GestureEventData) {
@@ -67,6 +78,7 @@ export class HomeComponent extends AppComponent implements OnInit {
             this._isFabOpen = false;
         } else {
             console.log('tap');
+            this.data.storage = {'language': 'EN'};
             var definitions = [];
 
             const btnEn = <View> this.en.nativeElement;
