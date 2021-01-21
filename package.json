@@ -1,7 +1,7 @@
 {
   "name": "children-first",
   "nativescript": {
-    "id": "org.nativescript.childrensfirstcrossplatform",
+    "id": "com.hua.childrenFirst",
     "tns-android": {
       "version": "6.5.3"
     }
@@ -14,6 +14,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build": "tns build android --release --key-store-path childrenFirst.jks --key-store-password E#Szvnidd --key-store-alias ChildrenFirst --key-store-alias-password E#Szvnidd --aab",
+    "build-ios": "tns build ios --for-device --release",
+    "prepare-ios": "tns prepare ios",
+    "provision": "tns prepare ios --provision",
+    "upload": "tns appstore upload --appleApplicationSpecificPassword E#Szvnidd1 --provision e73a5cba-3d71-4c8a-9f19-3544cabb2238",
     "android-phone": "tns run android --bundle",
     "add-android": "tns platform add android",
     "debug": "tns device log",
