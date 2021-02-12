@@ -2,7 +2,7 @@
     <GridLayout rows="3*, *">
         <GridLayout row="0" rows="*" class="m-t-20">
             <GridLayout row="0" rows="auto" verticalAlignment="top" >
-                <Label class="gagalin-regular feedback-header" text="SUMMARY" textWrap="true"></Label>
+                <Label class="gagalin-regular feedback-header" [text]="summaryLabel" textWrap="true"></Label>
             </GridLayout>
             <GridLayout row="1" columns="*,2*" class="feedback-bordered" backgroundColor="lightgray">
                 <GridLayout class="carousel-item-circle" col="0" row="0">
@@ -16,8 +16,12 @@
             </GridLayout>
         </GridLayout>
         <GridLayout row="1" columns="*">
+            <GridLayout id="replayScenario" col="0"  horizontalAlignment="left" >
+                <Label class="gagalin-regular play-again" [text]="replayScenarioText" verticalAlignment="bottom"  horizontalAlignment="left" style="margin-bottom: 10; margin-left: 10"></Label>
+                <Image width="20" height="20" src="font://&#xf3e5;" class="fas fa-reply" (tap)="onReplayScenarioTap($event)"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="aspectFit" style="margin-bottom: 10;margin-right:20"></Image>
+            </GridLayout>
             <GridLayout id="playAgainButton" col="0"  horizontalAlignment="right" >
-                <Label class="gagalin-regular play-again" text="THANKS FOR PLAYING! CHOOSE ANOTHER CHARACTER  " verticalAlignment="bottom"  horizontalAlignment="left" style="margin-bottom: 10"></Label>
+                <Label class="gagalin-regular play-again" [text]="playAgainButtonText" verticalAlignment="bottom"  horizontalAlignment="left" style="margin-bottom: 10"></Label>
                 <Image width="40" height="40" [src]="next" (tap)="onPlayAgainTap($event)"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="aspectFit" style="margin-right: 10"></Image>
             </GridLayout>
             <GridLayout id="nextButton" col="0"  horizontalAlignment="right" style="margin-bottom: 10">

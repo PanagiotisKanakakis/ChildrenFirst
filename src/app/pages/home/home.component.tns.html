@@ -10,7 +10,7 @@
             </GridLayout>
             <GridLayout row="0" col="1" horizontalAlignment="center" verticalAlignment="bottom" (tap)="onTap($event)">
                 <Image [src]="imageButton"  ></Image>
-                <Label class="gagalin-regular start" text="START" verticalAlignment="center"  horizontalAlignment="center"></Label>
+                <Label id="startButton" class="gagalin-regular start" [text]="buttonText" verticalAlignment="center"  horizontalAlignment="center"></Label>
             </GridLayout>
             <GridLayout row="0" col="2"  horizontalAlignment="right" verticalAlignment="bottom" style="margin-right: 5;">
                 <MDFloatingActionButton  (tap)="fabTap($event)" class="fab-button fab"

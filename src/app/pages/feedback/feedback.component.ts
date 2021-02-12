@@ -19,7 +19,10 @@ export class FeedbackComponent extends AppComponent implements OnInit, AfterCont
     public description: string;
     public score: string;
     public text: string;
+    public replayScenarioText: string;
     public next: string;
+    public summaryLabel: string;
+    public playAgainButtonText: string;
     private REDIRECT_ROUTE = ['/characters'];
 
     constructor(public page: Page,
@@ -27,7 +30,9 @@ export class FeedbackComponent extends AppComponent implements OnInit, AfterCont
                 private activatedroute: ActivatedRoute,
                 private data: Data) {
         super(page, router);
-        console.log(data);
+        this.summaryLabel = this.data.storage.other["3"][this.data.storage['language']];
+        this.playAgainButtonText = this.data.storage.other["4"][this.data.storage['language']];
+        this.replayScenarioText = this.data.storage.other["5"][this.data.storage['language']];
     }
 
     ngOnInit(): void {
@@ -46,6 +51,11 @@ export class FeedbackComponent extends AppComponent implements OnInit, AfterCont
             let css = File.fromPath(pageCss).readTextSync(() => {});
             this.page.addCss(css);
         }
+    }
+
+    onReplayScenarioTap(args: GestureEventData) {
+        console.log(this.data)
+        this.router.navigate(['/dialogs'], {clearHistory: true} as NavigationExtras);
     }
 
     onPlayAgainTap(args: GestureEventData) {

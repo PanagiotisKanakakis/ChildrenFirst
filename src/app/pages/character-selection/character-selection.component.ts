@@ -31,6 +31,7 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
     private slideView: ContentView;
     private REDIRECT_ROUTE = '/story-description';
     private characters: Array<any>;
+    public chooseCharacterText: any;
 
     constructor(
         public page: Page,
@@ -40,6 +41,7 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
         super(page, router);
         this.screenWidth = Screen.mainScreen.widthDIPs;
         this.languageCode = this.data.storage.language;
+        this.chooseCharacterText = this.data.storage.other['1'][this.languageCode];
         var character_column = 'CHARACTER_DESC_' + this.languageCode;
         var story_column = 'STORY_DESC_' + this.languageCode;
         new sqlite(encodeURI(path.join(`${knownFolders.currentApp().path}/assets/chf.db`))).then(db => {
@@ -101,6 +103,8 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
             }
             gridLayout.addRow(row);
             this.slideView.content = (this.slidesView = gridLayout);
+            for(let i=0;i<=16;i++)
+                this.animate(this.slidesView.getChildAt(i), this.slidesView.getChildAt((i+1) % this.slideCount), 2,1);
         }, 20);
     }
 
@@ -116,22 +120,22 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
         }
         const currSlide = this.slidesView.getChildAt(prevSlideNum);
         const nextSlide = this.slidesView.getChildAt(this.currentSlideNum);
-        this.animate(currSlide, nextSlide, args.direction);
+        this.animate(currSlide, nextSlide, args.direction,500);
     }
 
-    animate(currSlide, nextSlide, direction) {
+    animate(currSlide, nextSlide, direction,duration) {
         nextSlide.translateX = (direction == 2 ? this.screenWidth : -this.screenWidth);
         nextSlide.opacity = 1;
         var definitions = [];
         definitions.push({
             target: currSlide,
             translate: {x: (direction == 2 ? -this.screenWidth : this.screenWidth), y: 0},
-            duration: 500
+            duration: duration
         });
         definitions.push({
             target: nextSlide,
             translate: {x: 0, y: 0},
-            duration: 500
+            duration: duration
         });
         var animationSet = new Animation(definitions);
         animationSet.play().then(() => {
@@ -149,12 +153,14 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
     }
 
     onTap(args: GestureEventData) {
+        let other = this.data.storage['other'];
         this.data.storage = {
             'name': this.characters[this.currentSlideNum]['name'],
             'characterSrc': encodeURI(path.join(`${knownFolders.currentApp().path}` + this.characters[this.currentSlideNum]['avatar'])),
             'storyDescription': this.characters[this.currentSlideNum]['storyDESC'],
             'storyID': this.characters[this.currentSlideNum]['storyID'],
-            'language': this.languageCode
+            'language': this.languageCode,
+            'other': other
         };
         this.router.navigate([this.REDIRECT_ROUTE], {replaceUrl: true});
     }

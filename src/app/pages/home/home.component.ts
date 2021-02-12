@@ -7,6 +7,7 @@ import {RouterExtensions} from '@nativescript/angular';
 import {Data} from '@src/app/domain/Data';
 import {Animation} from '@nativescript/core/ui/animation';
 import DeviceType = Enums.DeviceType;
+let sqlite = require('nativescript-sqlite');
 
 @Component({
     selector: 'app-home',
@@ -30,8 +31,10 @@ export class HomeComponent extends AppComponent implements OnInit {
     @ViewChild('lt') lt: ElementRef;
     @ViewChild('bg') bg: ElementRef;
     public _isFabOpen: Boolean;
-    public euLogo:string;
-    public imageButton:string;
+    public euLogo: string;
+    public imageButton: string;
+    public buttonText: string;
+    private other:any;
 
     constructor(
         public router: RouterExtensions,
@@ -42,20 +45,39 @@ export class HomeComponent extends AppComponent implements OnInit {
         this.logoSrc = encodeURI(`${knownFolders.currentApp().path}/assets/images/logo_3.png`);
         this.imageButton = encodeURI(`${knownFolders.currentApp().path}/assets/images/intro_start_clicked.png`);
         this.euLogo = encodeURI(`${knownFolders.currentApp().path}/assets/images/eulogo.jpg`);
-        this.data.storage = {'language': 'EN'};
+        this.data.storage = {};
+        this.data.storage['language'] = 'EN';
+        this.buttonText = 'START';
 
+        new sqlite(encodeURI(path.join(`${knownFolders.currentApp().path}/assets/chf.db`))).then(db => {
+            db.resultType(sqlite.RESULTSASOBJECT);
+            db.all('SELECT * FROM other').then(rows => {
+                this.other = {}
+                for (let row in rows) {
+                    this.other[row] = {
+                        'EN': this.normalizeGreek(rows[row]['EN']),
+                        'GR': this.normalizeGreek(rows[row]['GR']),
+                        'IT': this.normalizeGreek(rows[row]['IT']),
+                        'LT': this.normalizeGreek(rows[row]['LT']),
+                    };
+                }
+            });
+        }, error => {
+            console.log('Failed to connect to db!', error);
+        });
 
         if (Device.deviceType === DeviceType.Tablet) {
             this.page.className = 'tablet';
             const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/tablet.css`));
             let css = File.fromPath(pageCss).readTextSync(() => {
             });
-            // console.log(css);
             this.page.addCss(css);
         }
     }
 
     onTap(args: GestureEventData) {
+        this.data.storage['other'] = this.other;
+        console.log(this.data.storage);
         this.router.navigate(this.REDIRECT_ROUTE, {clearHistory: true} as NavigationExtras);
     }
 
@@ -139,8 +161,10 @@ export class HomeComponent extends AppComponent implements OnInit {
     }
 
     tap(args: GestureEventData, languageCode: any) {
-        this.data.storage = {'language': this.languages[languageCode]};
-        console.log(this.data.storage);
+        console.log(this.other)
+        this.data.storage['language'] = this.languages[languageCode];
+        this.data.storage['other'] = this.other;
+        this.buttonText = this.data.storage['other']['0'][this.languages[languageCode]];
         const btnEn = <View> this.en.nativeElement;
         btnEn.animate({translate: {x: 0, y: 0}, opacity: 0, duration: 280, delay: 0});
 

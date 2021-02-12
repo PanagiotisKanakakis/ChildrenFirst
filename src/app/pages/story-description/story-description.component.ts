@@ -17,6 +17,7 @@ export class StoryDescriptionComponent extends AppComponent implements OnInit {
     public characterSrc: any;
     public storyDescription: any;
     public next: any;
+    public storyDescriptionLabel: any;
     public back: string;
 
     constructor(
@@ -25,6 +26,7 @@ export class StoryDescriptionComponent extends AppComponent implements OnInit {
         private data: Data
     ) {
         super(page, router);
+        this.storyDescriptionLabel = this.data.storage.other["2"][this.data.storage['language']];
         if (Device.deviceType === DeviceType.Tablet) {
             this.page.className = 'tablet';
             const pageCss = path.join(encodeURI(`${knownFolders.currentApp().path}/assets/tablet.css`));

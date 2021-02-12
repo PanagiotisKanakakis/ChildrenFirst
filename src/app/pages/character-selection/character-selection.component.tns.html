@@ -3,7 +3,7 @@
         <GridLayout rows="3*, *">
             <GridLayout row="0" rows="*" class="m-t-20">
                 <GridLayout row="0" rows="auto" verticalAlignment="top" class="m-b-20" >
-                    <Label class="gagalin-regular player-choice" text="CHOOSE YOUR PLAYER" textWrap="true"></Label>
+                    <Label class="gagalin-regular player-choice" [text]="chooseCharacterText" textWrap="true"></Label>
                 </GridLayout>
                 <ContentView #slideContent row="1" id="slide-content">
                     <GridLayout row="0" rows="*">

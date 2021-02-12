@@ -1,7 +1,7 @@
 {
   "name": "children-first",
   "nativescript": {
-    "id": "com.hua.childrenFirst",
+    "id": "org.nativescript.childrensfirstcrossplatform",
     "tns-android": {
       "version": "6.5.3"
     }
@@ -18,7 +18,7 @@
     "prepare-ios": "tns prepare ios",
     "provision": "tns prepare ios --provision",
     "upload": "tns appstore upload --appleApplicationSpecificPassword mvzz-reoh-jupd-bwml --provision e73a5cba-3d71-4c8a-9f19-3544cabb2238",
-    "android-phone": "tns run android --bundle",
+    "android-phone": "tns run android --no-hmr",
     "add-android": "tns platform add android",
     "debug": "tns device log",
     "android-emulator": "tns run android --no-hmr --emulator",
