@@ -16,9 +16,9 @@
             </GridLayout>
         </GridLayout>
         <GridLayout row="1" columns="*">
-            <GridLayout id="replayScenario" col="0"  horizontalAlignment="left" >
+            <GridLayout id="replayScenario" col="0"  horizontalAlignment="left" (tap)="onReplayScenarioTap($event)" >
                 <Label class="gagalin-regular play-again" [text]="replayScenarioText" verticalAlignment="bottom"  horizontalAlignment="left" style="margin-bottom: 10; margin-left: 10"></Label>
-                <Image width="20" height="20" src="font://&#xf3e5;" class="fas fa-reply" (tap)="onReplayScenarioTap($event)"  verticalAlignment="bottom" horizontalAlignment="right"  stretch="aspectFit" style="margin-bottom: 10;margin-right:20"></Image>
+                <Image width="20" height="20" src="font://&#xf3e5;" class="fas fa-reply"   verticalAlignment="bottom" horizontalAlignment="right"  stretch="aspectFit" style="margin-bottom: 10;margin-right:20"></Image>
             </GridLayout>
             <GridLayout id="playAgainButton" col="0"  horizontalAlignment="right" >
                 <Label class="gagalin-regular play-again" [text]="playAgainButtonText" verticalAlignment="bottom"  horizontalAlignment="left" style="margin-bottom: 10"></Label>
