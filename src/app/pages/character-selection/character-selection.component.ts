@@ -7,6 +7,7 @@ import {Animation} from '@nativescript/core/ui/animation';
 import {AppComponent} from '@src/app/app.component';
 import {RouterExtensions} from '@nativescript/angular';
 import {Data} from '@src/app/domain/Data';
+import {android as androidApp} from 'tns-core-modules/application';
 import DeviceType = Enums.DeviceType;
 
 const xml2js = require('xml2js');
@@ -103,8 +104,10 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
             }
             gridLayout.addRow(row);
             this.slideView.content = (this.slidesView = gridLayout);
-            for(let i=0;i<=16;i++)
-                this.animate(this.slidesView.getChildAt(i), this.slidesView.getChildAt((i+1) % this.slideCount), 2,1);
+            if (androidApp) {
+                for (let i = 0; i < 16; i++)
+                    this.animate(this.slidesView.getChildAt(i), this.slidesView.getChildAt((i + 1) % this.slideCount), 2, 0);
+            }
         }, 20);
     }
 
@@ -120,10 +123,10 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
         }
         const currSlide = this.slidesView.getChildAt(prevSlideNum);
         const nextSlide = this.slidesView.getChildAt(this.currentSlideNum);
-        this.animate(currSlide, nextSlide, args.direction,500);
+        this.animate(currSlide, nextSlide, args.direction, 500);
     }
 
-    animate(currSlide, nextSlide, direction,duration) {
+    animate(currSlide, nextSlide, direction, duration) {
         nextSlide.translateX = (direction == 2 ? this.screenWidth : -this.screenWidth);
         nextSlide.opacity = 1;
         var definitions = [];
