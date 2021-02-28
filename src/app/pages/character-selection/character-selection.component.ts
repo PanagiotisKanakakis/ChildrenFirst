@@ -33,6 +33,7 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
     private REDIRECT_ROUTE = '/story-description';
     private characters: Array<any>;
     public chooseCharacterText: any;
+    public swipe: any;
 
     constructor(
         public page: Page,
@@ -69,6 +70,10 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
             });
             this.page.addCss(css);
         }
+
+        this.swipe = encodeURI(`${knownFolders.currentApp().path}/assets/images/swipe_hand.png`);
+
+
     }
 
     ngAfterContentInit() {
@@ -149,7 +154,7 @@ export class CharacterSelectionComponent extends AppComponent implements AfterCo
     }
 
     getSliderItemClass(item: number) {
-        if (item == this.currentSlideNum) {
+        if (item == this.currentSlideNum%3) {
             return 'caro-item-dot caro-item-dot-selected';
         }
         return 'caro-item-dot';

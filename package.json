@@ -1,7 +1,7 @@
 {
   "name": "children-first",
   "nativescript": {
-    "id": "com.hua.childrenFirst",
+    "id": "org.nativescript.childrensfirstcrossplatform",
     "tns-android": {
       "version": "6.5.3"
     }
