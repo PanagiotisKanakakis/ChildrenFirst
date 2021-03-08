@@ -8,6 +8,7 @@
     </style>
 
     <style name="AppTheme" parent="AppThemeBase21">
+        <item name="android:forceDarkAllowed">false</item>
     </style>
 
     <!-- Default style for DatePicker - in spinner mode -->

@@ -30,3 +30,9 @@
     background-position: center;
     background-size: cover;
 }
+
+.helpText{
+    color: black;
+    font-size: 10;
+    margin-top: 10;
+}

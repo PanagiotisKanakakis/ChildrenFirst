@@ -3,6 +3,7 @@ import {Enums, Page} from '@nativescript/core';
 import {android as androidApp} from 'tns-core-modules/application';
 import {Device as device} from 'tns-core-modules/platform';
 import {RouterExtensions} from '@nativescript/angular';
+import Theme from '@nativescript/theme';
 
 declare var android: any;
 var greekUtils = require('greek-utils');
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit {
 
 
         if (androidApp && device.sdkVersion >= '21') {
+
             const View = android.view.View;
             const window = androidApp.startActivity.getWindow();
             const decorView = window.getDecorView();

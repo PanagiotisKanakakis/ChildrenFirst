@@ -4,15 +4,18 @@
         <Label [text]="scoreText" class="dialog-score gagalin-regular" horizontalAlignment="center"
                verticalAlignment="top"></Label>
     </GridLayout>
-    <ScrollView row="0" col="1" orientation="vertical" ios.pagingEnabled="true" left="0" top="0" width="100%"
-                height="75%">
-        <StackLayout #dialogsContent id="dialogs-content">
-            <Label id="labels" textWrap="true" [ngClass]="isInDialog?'gagalin-regular dialog':'gagalin-regular description'" width="auto" height="auto"
-                      *ngFor="let label of labels" @fadeIn [id]="label.id" [text]="label.text" [score]="label.score"
-                      [state]="label.state"
-                      (tap)="onImageTap($event,label.id)"></Label>
-        </StackLayout>
-    </ScrollView>
+    <GridLayout row="0" col="1">
+        <Label text="Scroll down to see all possible answers" class="gagalin-regular helpText"  horizontalAlignment="center" verticalAlignment="top"></Label>
+        <ScrollView id="scroll" rorientation="vertical" ios.pagingEnabled="true" left="0" top="0" width="100%"
+                    height="75%" scrollBarIndicatorVisible="true">
+            <StackLayout #dialogsContent id="dialogs-content">
+                <Label id="labels" textWrap="true" [ngClass]="isInDialog?'gagalin-regular dialog':'gagalin-regular description'" width="auto" height="auto"
+                       *ngFor="let label of labels" @fadeIn [id]="label.id" [text]="label.text" [score]="label.score"
+                       [state]="label.state"
+                       (tap)="onImageTap($event,label.id)"></Label>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
     <GridLayout row="0" col="2" rows="*,*">
         <GridLayout row="0" verticalAlignment="top" horizontalAlignment="center">
             <Image id="right" [src]="rightChar" ></Image>

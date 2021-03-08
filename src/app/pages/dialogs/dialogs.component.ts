@@ -1,6 +1,6 @@
 import {AfterContentInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AppComponent} from '@src/app/app.component';
-import {Device, Enums, GestureEventData, GridLayout, HorizontalAlignment, Image, Page, StackLayout} from '@nativescript/core';
+import {Device, Enums, GestureEventData, GridLayout, HorizontalAlignment, Image, Page, ScrollView, StackLayout} from '@nativescript/core';
 import {RouterExtensions} from '@nativescript/angular';
 import {File, knownFolders, path} from 'tns-core-modules/file-system';
 import {LabelPayload} from '@src/app/pages/dialogs/labelPayload';
@@ -60,6 +60,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     public isInDialog: any;
     public next: any;
     private maxScore: any;
+    public scroll: ScrollView;
 
     constructor(public page: Page,
                 public router: RouterExtensions,
@@ -87,6 +88,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     }
 
     ngOnInit(): void {
+        this.scroll = <ScrollView>this.page.getViewById('scroll');
         this.stackLayout = <StackLayout>this.page.getViewById('dialogs-content');
         this.gridLayout = <GridLayout>this.page.getViewById('grid');
         this.stackLayout.className = 'centerAlignment';

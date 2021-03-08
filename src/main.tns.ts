@@ -2,6 +2,7 @@
 import { platformNativeScriptDynamic } from '@nativescript/angular';
 
 import { AppModule } from '@src/app/app.module';
+import Theme from '@nativescript/theme';
 
 // A traditional NativeScript application starts by initializing global objects,
 // setting up global CSS rules, creating, and navigating to the main page.

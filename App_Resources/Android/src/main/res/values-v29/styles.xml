@@ -7,6 +7,8 @@
     </style>
 
     <style name="AppTheme" parent="AppThemeBase29">
+        <item name="android:forceDarkAllowed">false</item>
+
     </style>
 
 </resources>
