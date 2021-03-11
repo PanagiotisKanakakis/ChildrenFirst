@@ -61,6 +61,7 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
     public next: any;
     private maxScore: any;
     public scroll: ScrollView;
+    public scrollDownText: any;
 
     constructor(public page: Page,
                 public router: RouterExtensions,
@@ -84,11 +85,10 @@ export class DialogsComponent extends AppComponent implements OnInit, AfterConte
         });
         this.score = 0;
         this.scoreText = '0%';
-
+        this.scrollDownText = this.data.storage.other["6"][this.data.storage['language']];
     }
 
     ngOnInit(): void {
-        this.scroll = <ScrollView>this.page.getViewById('scroll');
         this.stackLayout = <StackLayout>this.page.getViewById('dialogs-content');
         this.gridLayout = <GridLayout>this.page.getViewById('grid');
         this.stackLayout.className = 'centerAlignment';

@@ -5,7 +5,7 @@
                verticalAlignment="top"></Label>
     </GridLayout>
     <GridLayout row="0" col="1">
-        <Label text="Scroll down to see all possible answers" class="gagalin-regular helpText"  horizontalAlignment="center" verticalAlignment="top"></Label>
+        <Label [text]="scrollDownText" class="gagalin-regular helpText"  horizontalAlignment="center" verticalAlignment="top"></Label>
         <ScrollView id="scroll" rorientation="vertical" ios.pagingEnabled="true" left="0" top="0" width="100%"
                     height="75%" scrollBarIndicatorVisible="true">
             <StackLayout #dialogsContent id="dialogs-content">
